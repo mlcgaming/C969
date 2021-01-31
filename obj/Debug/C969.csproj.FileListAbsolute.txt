@@ -1,0 +1,11 @@
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.exe.config
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.exe
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.pdb
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.HomeForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.LoginForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.Properties.Resources.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.GenerateResource.cache
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.exe
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.pdb
