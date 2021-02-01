@@ -51,24 +51,18 @@ namespace C969 {
             // Check Required Fields
             bool isFormValid = true;
 
-            if(IsControlEmptyOrWhitespace(tboxCustomerName)) {
+            if(Validator.IsControlEmptyOrWhitespace(tboxCustomerName)) {
+                lblCustomerNameWarning.Visible = false;
                 isFormValid = false;
             }
             else {
-                // Test to make sure name doesn't contain numbers and special characters
-                string customerName = tboxCustomerName.Text;
-                char[] invalidChars = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '?', '>', '<', '/', '\\', 
-                    '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '|', '[', ']', '\'', '"', ';', ':', ',', '.' };
-
-                for(int i = 0; i < invalidChars.Length; i++) {
-                    if(customerName.Contains(invalidChars[i])) {
-                        lblCustomerNameWarning.Visible = true;
-                        isFormValid = false;
-                        break;
-                    }
-                    else {
-                        lblCustomerNameWarning.Visible = false;
-                    }
+                if(Validator.IsTextFreeOfSpecialCharacters(tboxCustomerName.Text) == false) {
+                    lblCustomerNameWarning.Visible = true;
+                    isFormValid = false;
+                }
+                else {
+                    lblCustomerNameWarning.Visible = false;
+                    isFormValid = true;
                 }
             }
 
@@ -85,14 +79,6 @@ namespace C969 {
         /// </summary>
         /// <param name="control">Control to Test</param>
         /// <returns>TRUE if only spaces or empty. FALSE if text is present</returns>
-        private bool IsControlEmptyOrWhitespace(Control control) {
-            string controlText = control.Text;
-
-            if(controlText.Replace(" ", "").Length == 0) {
-                return true;
-            }
-            else { return false; }
-        }
         #endregion
 
         #region Event Functions
@@ -100,6 +86,23 @@ namespace C969 {
             // Attempt to perform a Save to DB, if successful, fire off OnFormSaving so HomeForm knows to refresh its data, then Close
             Customer newCustomer = new Customer(int.Parse(tboxCustomerId.Text), tboxCustomerName.Text, int.Parse(cmbAddressId.SelectedItem.ToString()),
                 checkCustomerActive.Checked, DateTime.Now, formOwner.Username, DateTime.Now, formOwner.Username);
+
+            // Created a string to apply an INSERT INTO SQL command
+            string insertValues = $"{newCustomer.CustomerID}, \"{newCustomer.Name}\", {newCustomer.AddressID}, {newCustomer.IsActive}, \"{newCustomer.DateCreated:yyyy-MM-dd HH:mm:ss}\", " +
+                $"\"{newCustomer.CreatedBy}\", \"{newCustomer.DateLastUpdated:yyyy-MM-dd HH:mm:ss}\", \"{newCustomer.LastUpdatedBy}\"";
+
+            int rowsAffected = DBManager.InsertNewRecord("customer", insertValues);
+
+            // Check Rows Affected to see if the record saved correctly
+            if(rowsAffected > 0) {
+                // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
+                MessageBox.Show($"{rowsAffected} record(s) saved! Retuning to Home Form.");
+                OnFormSaving();
+            }
+            else {
+                // Something went wrong, exit with a warning
+                MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
+            }
         }
         private void OnCancelButtonClicked(object sender, EventArgs e) {
             Close();
@@ -125,7 +128,8 @@ namespace C969 {
             ValidateForm();
         }
         private void OnFormSaving() {
-
+            FormSaving?.Invoke(null, EventArgs.Empty);
+            Close();
         }
         #endregion
     }

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using C969.DBItems;
 using C969.Events;
@@ -72,19 +68,15 @@ namespace C969 {
             #region MenuItem Selection Events
             newUserToolStripMenuItem.Click -= OnNewUserMenuItemSelected;
             modifyUserToolStripMenuItem.Click -= OnModifyUserMenuItemSelected;
-            deleteUserToolStripMenuItem.Click -= OnDeleteUserMenuItemSelected;
 
             newAppointmentToolStripMenuItem.Click -= OnNewAppointmentMenuItemSelected;
             modifyAppointmentToolStripMenuItem.Click -= OnModifyAppointmentMenuItemSelected;
-            deleteAppointmentToolStripMenuItem.Click -= OnDeleteAppointmentMenuItemSelected;
 
             newCustomerToolStripMenuItem.Click -= OnNewCustomerMenuItemSelected;
             modifyCustomerToolStripMenuItem.Click -= OnModifyCustomerMenuItemSelected;
-            deleteCustomerToolStripMenuItem.Click -= OnDeleteCustomerMenuItemSelected;
 
             newAddressToolStripMenuItem.Click -= OnNewAddressMenuItemSelected;
             modifyAddressToolStripMenuItem.Click -= OnModifyAddressMenuItemSelected;
-            deleteAddressToolStripMenuItem.Click -= OnDeleteAddressMenuItemSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged -= OnCustomerIdSelectionChanged;
@@ -117,6 +109,8 @@ namespace C969 {
             allCities.Clear();
             allCountries.Clear();
             userAppointments.Clear();
+            cmbAddressId.Items.Clear();
+            cmbCustomerId.Items.Clear();
 
             // Get Current Data from Database
             allUsers = DBManager.GetAllUserAccounts();
@@ -179,19 +173,15 @@ namespace C969 {
             #region MenuItem Selection Events
             newUserToolStripMenuItem.Click += OnNewUserMenuItemSelected;
             modifyUserToolStripMenuItem.Click += OnModifyUserMenuItemSelected;
-            deleteUserToolStripMenuItem.Click += OnDeleteUserMenuItemSelected;
 
             newAppointmentToolStripMenuItem.Click += OnNewAppointmentMenuItemSelected;
             modifyAppointmentToolStripMenuItem.Click += OnModifyAppointmentMenuItemSelected;
-            deleteAppointmentToolStripMenuItem.Click += OnDeleteAppointmentMenuItemSelected;
 
             newCustomerToolStripMenuItem.Click += OnNewCustomerMenuItemSelected;
             modifyCustomerToolStripMenuItem.Click += OnModifyCustomerMenuItemSelected;
-            deleteCustomerToolStripMenuItem.Click += OnDeleteCustomerMenuItemSelected;
 
             newAddressToolStripMenuItem.Click += OnNewAddressMenuItemSelected;
             modifyAddressToolStripMenuItem.Click += OnModifyAddressMenuItemSelected;
-            deleteAddressToolStripMenuItem.Click += OnDeleteAddressMenuItemSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged += OnCustomerIdSelectionChanged;

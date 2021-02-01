@@ -76,22 +76,29 @@ namespace C969 {
         public void ValidateForm() {
             bool isFormValid = true;
 
-            if(IsControlEmptyOrWhitespace(tboxAppointmentTitle)) {
+            // Make sure Title contains characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxAppointmentTitle)) {
                 isFormValid = false;
             }
 
-            if(IsControlEmptyOrWhitespace(tboxAppointmentDescription)) {
-                isFormValid = false;
-            }
-            if(IsControlEmptyOrWhitespace(tboxAppointmentLocation)) {
-                isFormValid = false;
-            }
-
-            if(IsControlEmptyOrWhitespace(tboxAppointmentContact)) {
+            // Make sure Description contains characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxAppointmentDescription)) {
                 isFormValid = false;
             }
 
-            if(IsControlEmptyOrWhitespace(tboxAppointmentUrl)) {
+            // Make sure Location contains characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxAppointmentLocation)) {
+                isFormValid = false;
+            }
+
+            // Make sure Contact contains characters, but not special characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxAppointmentContact) || 
+                Validator.IsTextFreeOfSpecialCharacters(tboxAppointmentContact.Text) == false) {
+                isFormValid = false;
+            }
+
+            // Make sure URL contains characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxAppointmentUrl)) {
                 isFormValid = false;
             }
 
@@ -101,21 +108,6 @@ namespace C969 {
             }
             else { 
                 btnSave.Enabled = false; 
-            }
-        }
-        /// <summary>
-        /// Tests if the control's Text is empty or only whitespace. Returns TRUE if only whitespace or empty. Returns FALSE if other text is present
-        /// </summary>
-        /// <param name="control">Control to test TEXT value</param>
-        /// <returns></returns>
-        private bool IsControlEmptyOrWhitespace(Control control) {
-            string entry = control.Text;
-
-            if(entry.Replace(" ", "").Length > 0) {
-                return false;
-            }
-            else {
-                return true;
             }
         }
         #endregion

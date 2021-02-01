@@ -28,19 +28,12 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appointmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
             this.grpCustomers = new System.Windows.Forms.GroupBox();
             this.grpCustomerDetails = new System.Windows.Forms.GroupBox();
@@ -86,6 +79,9 @@
             this.radioDateWeekly = new System.Windows.Forms.RadioButton();
             this.lblAppointmentDateRange = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.newAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.grpCustomers.SuspendLayout();
@@ -123,113 +119,64 @@
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newUserToolStripMenuItem,
-            this.modifyUserToolStripMenuItem,
-            this.deleteUserToolStripMenuItem});
+            this.modifyUserToolStripMenuItem});
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // newUserToolStripMenuItem
             // 
             this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
-            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newUserToolStripMenuItem.Text = "New";
             // 
             // modifyUserToolStripMenuItem
             // 
             this.modifyUserToolStripMenuItem.Name = "modifyUserToolStripMenuItem";
-            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyUserToolStripMenuItem.Text = "Modify";
-            // 
-            // deleteUserToolStripMenuItem
-            // 
-            this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteUserToolStripMenuItem.Text = "Delete";
+            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyUserToolStripMenuItem.Text = "Modify / Delete";
             // 
             // appointmentsToolStripMenuItem
             // 
             this.appointmentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newAppointmentToolStripMenuItem,
-            this.modifyAppointmentToolStripMenuItem,
-            this.deleteAppointmentToolStripMenuItem});
+            this.modifyAppointmentToolStripMenuItem});
             this.appointmentsToolStripMenuItem.Name = "appointmentsToolStripMenuItem";
-            this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.appointmentsToolStripMenuItem.Text = "Appointments";
             // 
             // newAppointmentToolStripMenuItem
             // 
             this.newAppointmentToolStripMenuItem.Name = "newAppointmentToolStripMenuItem";
-            this.newAppointmentToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newAppointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newAppointmentToolStripMenuItem.Text = "New";
             // 
             // modifyAppointmentToolStripMenuItem
             // 
             this.modifyAppointmentToolStripMenuItem.Name = "modifyAppointmentToolStripMenuItem";
-            this.modifyAppointmentToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyAppointmentToolStripMenuItem.Text = "Modify";
-            // 
-            // deleteAppointmentToolStripMenuItem
-            // 
-            this.deleteAppointmentToolStripMenuItem.Name = "deleteAppointmentToolStripMenuItem";
-            this.deleteAppointmentToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteAppointmentToolStripMenuItem.Text = "Delete";
+            this.modifyAppointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyAppointmentToolStripMenuItem.Text = "Modify / Delete";
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newCustomerToolStripMenuItem,
-            this.modifyCustomerToolStripMenuItem,
-            this.deleteCustomerToolStripMenuItem});
+            this.modifyCustomerToolStripMenuItem});
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customersToolStripMenuItem.Text = "Customers";
             // 
             // newCustomerToolStripMenuItem
             // 
             this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
-            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newCustomerToolStripMenuItem.Text = "New";
             // 
             // modifyCustomerToolStripMenuItem
             // 
             this.modifyCustomerToolStripMenuItem.Name = "modifyCustomerToolStripMenuItem";
-            this.modifyCustomerToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyCustomerToolStripMenuItem.Text = "Modify";
-            // 
-            // deleteCustomerToolStripMenuItem
-            // 
-            this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteCustomerToolStripMenuItem.Text = "Delete";
-            // 
-            // addressesToolStripMenuItem
-            // 
-            this.addressesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newAddressToolStripMenuItem,
-            this.modifyAddressToolStripMenuItem,
-            this.deleteAddressToolStripMenuItem});
-            this.addressesToolStripMenuItem.Name = "addressesToolStripMenuItem";
-            this.addressesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.addressesToolStripMenuItem.Text = "Addresses";
-            // 
-            // newAddressToolStripMenuItem
-            // 
-            this.newAddressToolStripMenuItem.Name = "newAddressToolStripMenuItem";
-            this.newAddressToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.newAddressToolStripMenuItem.Text = "New";
-            // 
-            // modifyAddressToolStripMenuItem
-            // 
-            this.modifyAddressToolStripMenuItem.Name = "modifyAddressToolStripMenuItem";
-            this.modifyAddressToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.modifyAddressToolStripMenuItem.Text = "Modify";
-            // 
-            // deleteAddressToolStripMenuItem
-            // 
-            this.deleteAddressToolStripMenuItem.Name = "deleteAddressToolStripMenuItem";
-            this.deleteAddressToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.deleteAddressToolStripMenuItem.Text = "Delete";
+            this.modifyCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyCustomerToolStripMenuItem.Text = "Modify / Delete";
             // 
             // dgvAppointmentList
             // 
@@ -679,6 +626,27 @@
             this.panel1.Size = new System.Drawing.Size(264, 100);
             this.panel1.TabIndex = 6;
             // 
+            // newAddressToolStripMenuItem
+            // 
+            this.newAddressToolStripMenuItem.Name = "newAddressToolStripMenuItem";
+            this.newAddressToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newAddressToolStripMenuItem.Text = "New";
+            // 
+            // modifyAddressToolStripMenuItem
+            // 
+            this.modifyAddressToolStripMenuItem.Name = "modifyAddressToolStripMenuItem";
+            this.modifyAddressToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyAddressToolStripMenuItem.Text = "Modify / Delete";
+            // 
+            // addressesToolStripMenuItem
+            // 
+            this.addressesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newAddressToolStripMenuItem,
+            this.modifyAddressToolStripMenuItem});
+            this.addressesToolStripMenuItem.Name = "addressesToolStripMenuItem";
+            this.addressesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addressesToolStripMenuItem.Text = "Addresses";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -723,19 +691,12 @@
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyUserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem appointmentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newAppointmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyAppointmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteAppointmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addressesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newAddressToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyAddressToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteAddressToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvAppointmentList;
         private System.Windows.Forms.GroupBox grpCustomers;
         private System.Windows.Forms.GroupBox grpCustomerDetails;
@@ -781,6 +742,9 @@
         private System.Windows.Forms.RadioButton radioDateWeekly;
         private System.Windows.Forms.Label lblAppointmentDateRange;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem addressesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newAddressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyAddressToolStripMenuItem;
     }
 }
 

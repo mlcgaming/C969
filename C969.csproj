@@ -85,9 +85,28 @@
     <Compile Include="Forms\NewCustomerForm.Designer.cs">
       <DependentUpon>NewCustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewAddressForm.Designer.cs">
+      <DependentUpon>NewAddressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewCityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewCityForm.Designer.cs">
+      <DependentUpon>NewCityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewCountryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewCountryForm.Designer.cs">
+      <DependentUpon>NewCountryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Validator.cs" />
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewCustomerForm.resx">
       <DependentUpon>NewCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewAddressForm.resx">
+      <DependentUpon>NewAddressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewCityForm.resx">
+      <DependentUpon>NewCityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewCountryForm.resx">
+      <DependentUpon>NewCountryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

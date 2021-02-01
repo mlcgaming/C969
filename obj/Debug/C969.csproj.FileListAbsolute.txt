@@ -38,3 +38,7 @@ C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.csproj.CopyComplet
 C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.exe
 C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.pdb
 C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewCustomerForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.csprojAssemblyReference.cache
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewAddressForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewCityForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewCountryForm.resources
