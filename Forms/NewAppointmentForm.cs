@@ -12,10 +12,14 @@ using C969.Exceptions;
 
 namespace C969 {
     public partial class NewAppointmentForm : Form {
+        private UserAccount formOwner;
+
         public event EventHandler FormSaved;
 
-        public NewAppointmentForm() {
+        public NewAppointmentForm(UserAccount user) {
             InitializeComponent();
+
+            formOwner = user;
         }
 
         private void NewAppointmentForm_Load(object sender, EventArgs e) {
@@ -177,9 +181,9 @@ namespace C969 {
                 DateTime start = dtpAppointmentStart.Value.ToUniversalTime();
                 DateTime end = dtpAppointmentEnd.Value.ToUniversalTime();
                 DateTime createDate = DateTime.Now.ToUniversalTime();
-                string createdBy = DBManager.GetUserById(userId).Username;
+                string createdBy = formOwner.Username;
                 DateTime lastUpdate = DateTime.Now.ToUniversalTime();
-                string lastUpdatedBy = DBManager.GetUserById(userId).Username;
+                string lastUpdatedBy = formOwner.Username;
 
                 Appointment newAppointment = new Appointment(appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
                 string insertValues = $"{appointmentId}, {customerId}, {userId}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", "

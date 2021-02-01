@@ -292,7 +292,7 @@ namespace C969 {
 
         }
         private void OnNewAppointmentMenuItemSelected(object sender, EventArgs e) {
-            NewAppointmentForm newApptForm = new NewAppointmentForm();
+            NewAppointmentForm newApptForm = new NewAppointmentForm(activeUser);
             newApptForm.FormSaved += OnFormSaved;
             newApptForm.ShowDialog();
         }
@@ -303,7 +303,9 @@ namespace C969 {
 
         }
         private void OnNewCustomerMenuItemSelected(object sender, EventArgs e) {
-
+            NewCustomerForm newCustomerForm = new NewCustomerForm(activeUser);
+            newCustomerForm.FormSaving += OnFormSaved;
+            newCustomerForm.ShowDialog();
         }
         private void OnModifyCustomerMenuItemSelected(object sender, EventArgs e) {
 

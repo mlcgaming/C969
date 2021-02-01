@@ -25,3 +25,16 @@ C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.exe.config
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.CopyComplete
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewAppointmentForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\bin\Debug\C969.exe.config
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\bin\Debug\C969.exe
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\bin\Debug\C969.pdb
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.HomeForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.LoginForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewAppointmentForm.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.Properties.Resources.resources
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.csproj.GenerateResource.cache
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.csproj.CopyComplete
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.exe
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.pdb
+C:\Users\MCourneya\Source\Repos\mlcgaming\C969\obj\Debug\C969.NewCustomerForm.resources

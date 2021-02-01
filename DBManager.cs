@@ -294,6 +294,33 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
+        public static Address GetAddressById(int id) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectAddressesQuery = $"SELECT * FROM address WHERE addressId = {id}";
+            MySqlCommand selectAddressesCommand = new MySqlCommand(selectAddressesQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectAddressesCommand.ExecuteReader();
+                Address newAddress = null;
+
+                while(reader.Read()) {
+                    newAddress = new Address(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6),
+                        reader.GetString(7), reader.GetDateTime(8), reader.GetString(9));
+                }
+
+                return newAddress;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
         /// <summary>
         /// Retrieves most current list of records in CITY table of Database
         /// </summary>
@@ -379,6 +406,32 @@ namespace C969 {
                 }
 
                 return allCountries;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+
+        public static Country GetCountryById(int id) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectCountriesQuery = $"SELECT * FROM country WHERE countryId = {id}";
+            MySqlCommand selectCountriesCommand = new MySqlCommand(selectCountriesQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectCountriesCommand.ExecuteReader();
+                Country selectedCountry = null;
+
+                while(reader.Read()) {
+                    selectedCountry = new Country(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5));
+                }
+
+                return selectedCountry;
             }
             catch(MySqlException ex) {
                 MessageBox.Show(ex.Message);
