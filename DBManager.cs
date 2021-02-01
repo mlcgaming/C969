@@ -205,6 +205,37 @@ namespace C969 {
             }
         }
         /// <summary>
+        /// Retrieves Record for a Specific Customer from CUSTOMER table using the specified ID
+        /// </summary>
+        /// <param name="id">ID of the customer to pull from CUSTOMER table</param>
+        /// <returns></returns>
+        public static Customer GetCustomerById(int id) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectCustomersQuery = $"SELECT * FROM customer WHERE customerId = {id}";
+            MySqlCommand selectCustomersCommand = new MySqlCommand(selectCustomersQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectCustomersCommand.ExecuteReader();
+                Customer selectedCustomer = null;
+
+                while(reader.Read()) {
+                    selectedCustomer = new Customer(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5),
+                        reader.GetDateTime(6), reader.GetString(7));
+                }
+
+                return selectedCustomer;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+        /// <summary>
         /// Retrieves most current list of records in ADDRESS table of Database
         /// </summary>
         /// <returns>List of Address objects</returns>
@@ -270,6 +301,36 @@ namespace C969 {
             }
         }
         /// <summary>
+        /// Retrieves Record for a Specific City from CITY table using the specified ID
+        /// </summary>
+        /// <param name="id">ID of the city to pull from CITY table</param>
+        /// <returns></returns>
+        public static City GetCityById(int id) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectCitiesQuery = $"SELECT * FROM city WHERE cityId = {id}";
+            MySqlCommand selectCitiesCommand = new MySqlCommand(selectCitiesQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectCitiesCommand.ExecuteReader();
+                City selectedCity = null;
+
+                while(reader.Read()) {
+                    selectedCity = new City(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetString(4), reader.GetDateTime(5), reader.GetString(6));
+                }
+
+                return selectedCity;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+        /// <summary>
         /// Retrieves most current list of records in COUNTRY table of Database
         /// </summary>
         /// <returns>List of Country objects</returns>
@@ -300,6 +361,125 @@ namespace C969 {
             finally {
                 dbConnection.Close();
             }
+        }
+        #endregion
+
+        #region Useful Functions
+        /// <summary>
+        /// Queries specified TABLE for MAX ID value, then returns that ID, incremented by 1
+        /// </summary>
+        /// <param name="table">Table to query for new ID</param>
+        /// <returns></returns>
+        public static int GetNewIdFromTable(string table, string idColumnName) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string query = $"SELECT MAX({idColumnName}) FROM {table}";
+            MySqlCommand selectCommand = new MySqlCommand(query, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                int maxID = 9998;
+                MySqlDataReader reader = selectCommand.ExecuteReader();
+                while(reader.Read()) {
+                    maxID = reader.GetInt32(0);
+                }
+
+                return maxID + 1;
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+        public static string GetFullAddressById(int addressId) {
+            Address address = null;
+            City city = null;
+            Country country = null;
+
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string addressSelectQuery = $"SELECT * FROM address WHERE addressId = {addressId}";
+            MySqlCommand addressSelectCommand = new MySqlCommand(addressSelectQuery, dbConnection);
+
+            // Try to Pull the Address using the provided addressId
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = addressSelectCommand.ExecuteReader();
+
+                while(reader.Read()) {
+                    address = new Address(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7),
+                        reader.GetDateTime(8), reader.GetString(9));
+                }
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                dbConnection.Close();
+            }
+
+            // Try to Pull City data using the CityId pulled from the Address
+            try {
+                string citySelectQuery = $"SELECT * FROM city WHERE cityId = {address.CityID}";
+                MySqlCommand citySelectCommand = new MySqlCommand(citySelectQuery, dbConnection);
+
+                dbConnection.Open();
+
+                MySqlDataReader reader = citySelectCommand.ExecuteReader();
+
+                while(reader.Read()) {
+                    city = new City(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetString(4), reader.GetDateTime(5), reader.GetString(6));
+                }
+            }
+            catch(NullReferenceException ex) {
+                MessageBox.Show("Address not found. Unable to load city data.");
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                dbConnection.Close();
+            }
+
+            // Try to Pull Country data using the countryId pulled from the City
+            try {
+                string countrySelectQuery = $"SELECT * FROM country WHERE countryId = {city.CountryID}";
+                MySqlCommand countrySelectCommand = new MySqlCommand(countrySelectQuery, dbConnection);
+
+                dbConnection.Open();
+
+                MySqlDataReader reader = countrySelectCommand.ExecuteReader();
+
+                while(reader.Read()) {
+                    country = new Country(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5));
+                }
+            }
+            catch(NullReferenceException ex) {
+                MessageBox.Show("Address not found. Unable to load country data.");
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                dbConnection.Close();
+            }
+
+            // Build the Full Address and Return
+            StringBuilder addressBuilder = new StringBuilder();
+            try {
+                addressBuilder.Append($"{address.Address1}");
+                if(address.Address2 != "") { addressBuilder.Append($", {address.Address2}"); }
+                addressBuilder.Append("\r\n");
+                addressBuilder.Append($"{city.Name}, {country.Name}");
+            }
+            catch(NullReferenceException ex) {
+                MessageBox.Show("Unable to load Address data to create string");
+            }
+
+            return addressBuilder.ToString();
         }
         #endregion
     }

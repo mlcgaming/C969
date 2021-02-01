@@ -104,7 +104,7 @@ namespace C969 {
 
             englishLabels = new Dictionary<int, string>()
             {
-                {ID_LABEL_LOGIN_FORM_TITLE, "Login\r\nto Database" },
+                {ID_LABEL_LOGIN_FORM_TITLE, "Login" },
                 {ID_LABEL_LOGIN_FORM_USERNAME, "Username:" },
                 {ID_LABEL_LOGIN_FORM_PASSWORD, "Password:" },
                 {ID_LABEL_LOGIN_FORM_LOGIN_BUTTON, "Login" },

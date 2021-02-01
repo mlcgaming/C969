@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentListing.cs" />
     <Compile Include="DBItems\Address.cs" />
     <Compile Include="DBItems\Appointment.cs" />
     <Compile Include="DBItems\City.cs" />

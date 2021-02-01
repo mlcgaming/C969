@@ -63,6 +63,7 @@ namespace C969 {
         private void OnUserLoggedIn(UserAccount user) {
             MessageBox.Show("Login Successful");
             UserLoggedIn?.Invoke(null, new UserLoggedInEventArgs(user));
+            Close();
         }
         private void OnLoginButtonPressed(object sender, EventArgs args) {
             List<UserAccount> allUsers = DBManager.GetAllUserAccounts();
@@ -73,6 +74,7 @@ namespace C969 {
                         if(u.Password == tboxPassword.Text) {
                             // Login Successfull
                             OnUserLoggedIn(u);
+                            return;
                         }
                         else {
                             // Username Matches, but Password Doesn't. Throw Exception

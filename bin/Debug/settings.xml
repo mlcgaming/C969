@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <Connection>
+    <Server>wgudb.ucertify.com</Server>
+    <Port>3306</Port>
+    <Schema>U07v8q</Schema>
+    <User>U07v8q</User>
+    <Password>53689143851</Password>
+  </Connection>
+</Settings>
