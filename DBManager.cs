@@ -138,6 +138,32 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
+        public static UserAccount GetUserById(int userId) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string allUsersQuery = $"SELECT * FROM user WHERE userId = {userId}";
+            MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectAllUsersCommand.ExecuteReader();
+                UserAccount selectedUser = null;
+
+                while(reader.Read()) {
+                    selectedUser = new UserAccount(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5));
+                }
+
+                return selectedUser;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
         /// <summary>
         /// Retrieves most current list of records in APPOINTMENT table of Database
         /// </summary>

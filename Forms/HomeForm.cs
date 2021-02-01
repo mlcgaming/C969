@@ -206,9 +206,18 @@ namespace C969 {
         }
         private void ReloadAppointmentCalendar() {
             if(userAppointments.Count > 0) {
-                userAppointments.Clear();
+                userAppointments = new List<AppointmentListing>();
                 dgvAppointmentList.DataSource = null;
                 dgvAppointmentList.Rows.Clear();
+            }
+
+            if(radioTimeLocal.Checked == true) {
+                earliestAppointmentViewDate = earliestAppointmentViewDate.ToLocalTime();
+                latestAppointmentViewDate = latestAppointmentViewDate.ToLocalTime();
+            }
+            else {
+                earliestAppointmentViewDate = earliestAppointmentViewDate.ToUniversalTime();
+                latestAppointmentViewDate = latestAppointmentViewDate.ToUniversalTime();
             }
 
             IEnumerable<Appointment> filteredAppointments =
@@ -229,18 +238,20 @@ namespace C969 {
                     if(radioTimeLocal.Checked == true) {
                         apptStart = apptStart.ToLocalTime();
                         apptEnd = apptEnd.ToLocalTime();
+                        lblAppointmentDateRange.Text = $"Viewing User Appointments from\r\n{earliestAppointmentViewDate.ToLocalTime():dd MMM yyyy HH:mm:ss} to {latestAppointmentViewDate.ToLocalTime():dd MMM yyyy HH:mm:ss}";
                     }
-                    else {
-                        apptStart = apptStart.ToUniversalTime();
-                        apptEnd = apptEnd.ToUniversalTime();
+
+                    if(radioTimeUTC.Checked == true) {
+                        lblAppointmentDateRange.Text = $"Viewing User Appointments from\r\n{earliestAppointmentViewDate.ToUniversalTime():dd MMM yyyy HH:mm:ss} to {latestAppointmentViewDate.ToUniversalTime():dd MMM yyyy HH:mm:ss}";
                     }
 
                     AppointmentListing listing = new AppointmentListing(appt.ID, userName, customerName, appt.Title, appt.Description, appt.Type, apptStart, apptEnd);
+
+                    
+
                     userAppointments.Add(listing);
                 }
             }
-
-            lblAppointmentDateRange.Text = $"Viewing User Appointments from\r\n{earliestAppointmentViewDate.ToString("dd MMM yyyy")} to {latestAppointmentViewDate.ToString("dd MMM yyyy")}";
 
             if(userAppointments.Count > 0) {
                 dgvAppointmentList.DataSource = userAppointments;
@@ -267,6 +278,10 @@ namespace C969 {
         private void OnUserLoggedIn(object sender, UserLoggedInEventArgs e) {
             activeUser = e.User;
         }
+        private void OnFormSaved(object sender, EventArgs e) {
+            ResetHomeForm();
+        }
+
         private void OnNewUserMenuItemSelected(object sender, EventArgs e) {
             
         }
@@ -277,7 +292,9 @@ namespace C969 {
 
         }
         private void OnNewAppointmentMenuItemSelected(object sender, EventArgs e) {
-
+            NewAppointmentForm newApptForm = new NewAppointmentForm();
+            newApptForm.FormSaved += OnFormSaved;
+            newApptForm.ShowDialog();
         }
         private void OnModifyAppointmentMenuItemSelected(object sender, EventArgs e) {
 

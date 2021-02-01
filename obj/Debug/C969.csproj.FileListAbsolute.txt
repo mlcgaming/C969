@@ -21,6 +21,7 @@ C:\Users\Max Courneya\source\repos\C969\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\MySql.Data.xml
-C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.exe.config
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.CopyComplete
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewAppointmentForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache

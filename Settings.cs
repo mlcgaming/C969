@@ -26,6 +26,8 @@ namespace C969 {
         private static Dictionary<int, string> englishLabels;
         private static Dictionary<int, string> currentLabels;
 
+        private static readonly List<string> appointmentTypes = new List<string>() { "Scrum", "Presentation", "Evalutation", "Meeting" };
+
         public static string DBServer {
             get { return databaseServerUrl; }
         }
@@ -44,6 +46,10 @@ namespace C969 {
 
         public static Dictionary<int, string> CurrentLabels {
             get { return currentLabels; }
+        }
+
+        public static List<string> AppointmentTypes {
+            get { return appointmentTypes; }
         }
 
         public static void Initialize() {

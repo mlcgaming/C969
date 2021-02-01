@@ -20,6 +20,8 @@ namespace C969 {
             InitializeComponent();
             SetFormTextByLanguage();
 
+            btnLogin.Enabled = false;
+
             tboxUsername.TextChanged += OnLoginFieldsUpdated;
             tboxPassword.TextChanged += OnLoginFieldsUpdated;
             btnLogin.Click += OnLoginButtonPressed;
