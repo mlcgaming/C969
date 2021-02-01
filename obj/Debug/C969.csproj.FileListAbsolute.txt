@@ -1,7 +1,6 @@
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.exe.config
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.exe
 C:\Users\Max Courneya\source\repos\C969\bin\Debug\C969.pdb
-C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.HomeForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.LoginForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.Properties.Resources.resources
@@ -9,3 +8,19 @@ C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.GenerateResource.c
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.CoreCompileInputs.cache
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.exe
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.pdb
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\MySql.Data.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\Google.Protobuf.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\Zstandard.Net.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\Renci.SshNet.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\System.Memory.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\System.Buffers.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Max Courneya\source\repos\C969\bin\Debug\MySql.Data.xml
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csprojAssemblyReference.cache
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.exe.config
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.csproj.CopyComplete
