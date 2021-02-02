@@ -138,11 +138,45 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
-
+        /// <summary>
+        /// Retrieves a UserAccount from USER table using the provided ID to select
+        /// </summary>
+        /// <param name="userId">ID of the UserAccount to retrieve</param>
+        /// <returns>UserAccount Object or NULL</returns>
         public static UserAccount GetUserById(int userId) {
             MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
-            string allUsersQuery = $"SELECT * FROM user WHERE userId = {userId}";
-            MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, dbConnection);
+            string selectUsersQuery = $"SELECT * FROM user WHERE userId = {userId}";
+            MySqlCommand selectUsersCommand = new MySqlCommand(selectUsersQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectUsersCommand.ExecuteReader();
+                UserAccount selectedUser = null;
+
+                while(reader.Read()) {
+                    selectedUser = new UserAccount(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5));
+                }
+
+                return selectedUser;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+        /// <summary>
+        /// Retrieves a UserAccount from USER table using the provided Username to select
+        /// </summary>
+        /// <param name="username">Username of the UserAccount to retrieve</param>
+        /// <returns>UserAccount Object or NULL</returns>
+        public static UserAccount GetUserByName(string username) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectUsersQuery = $"SELECT * FROM user WHERE userName = \"{username}\"";
+            MySqlCommand selectAllUsersCommand = new MySqlCommand(selectUsersQuery, dbConnection);
 
             try {
                 dbConnection.Open();
@@ -164,6 +198,7 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
         /// <summary>
         /// Retrieves most current list of records in APPOINTMENT table of Database
         /// </summary>
@@ -197,6 +232,38 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+        /// <summary>
+        /// Retrieves an Appointment from APPOINTMENT table using the provided ID to select
+        /// </summary>
+        /// <param name="id">ID of Appointment to Retrieve</param>
+        /// <returns>Appointment Object or NULL</returns>
+        public static Appointment GetAppointmentById(int id) {
+            MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
+            string selectAppointmentsQuery = $"SELECT * FROM appointment WHERE appointmentId = {id}";
+            MySqlCommand selectAllAppointmentsCommand = new MySqlCommand(selectAppointmentsQuery, dbConnection);
+
+            try {
+                dbConnection.Open();
+
+                MySqlDataReader reader = selectAllAppointmentsCommand.ExecuteReader();
+                Appointment selectedAppointment = null;
+
+                while(reader.Read()) {
+                    selectedAppointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
+                        reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
+                }
+
+                return selectedAppointment;
+            }
+            catch(MySqlException ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally {
+                dbConnection.Close();
+            }
+        }
+
         /// <summary>
         /// Retrieves most current list of records in CUSTOMER table of Database
         /// </summary>
@@ -261,6 +328,7 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
         /// <summary>
         /// Retrieves most current list of records in ADDRESS table of Database
         /// </summary>
@@ -294,7 +362,11 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
-
+        /// <summary>
+        /// Retreives an Address from ADDRESS table using the provided ID to select
+        /// </summary>
+        /// <param name="id">ID of the Address to retrieve</param>
+        /// <returns>Address Object or NULL</returns>
         public static Address GetAddressById(int id) {
             MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
             string selectAddressesQuery = $"SELECT * FROM address WHERE addressId = {id}";
@@ -321,6 +393,7 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
         /// <summary>
         /// Retrieves most current list of records in CITY table of Database
         /// </summary>
@@ -383,6 +456,7 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
+
         /// <summary>
         /// Retrieves most current list of records in COUNTRY table of Database
         /// </summary>
@@ -415,7 +489,11 @@ namespace C969 {
                 dbConnection.Close();
             }
         }
-
+        /// <summary>
+        /// Retrieves a Country from COUNTRY table using the provided ID to search
+        /// </summary>
+        /// <param name="id">ID of the Country to retrieve</param>
+        /// <returns>Country object or null</returns>
         public static Country GetCountryById(int id) {
             MySqlConnection dbConnection = new MySqlConnection(Settings.DBConnectionString);
             string selectCountriesQuery = $"SELECT * FROM country WHERE countryId = {id}";

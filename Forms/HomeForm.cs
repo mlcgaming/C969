@@ -77,6 +77,12 @@ namespace C969 {
 
             newAddressToolStripMenuItem.Click -= OnNewAddressMenuItemSelected;
             modifyAddressToolStripMenuItem.Click -= OnModifyAddressMenuItemSelected;
+
+            newCityToolStripMenuItem.Click -= OnNewCityMenuItemSelected;
+            modifyCityToolStripMenuItem.Click -= OnModifyCityMenuItemSelected;
+
+            newCountryToolStripMenuItem.Click -= OnNewCountryMenuItemSelected;
+            modifyCountryToolStripMenuItem.Click -= OnModifyCountryMenuItemsSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged -= OnCustomerIdSelectionChanged;
@@ -182,6 +188,12 @@ namespace C969 {
 
             newAddressToolStripMenuItem.Click += OnNewAddressMenuItemSelected;
             modifyAddressToolStripMenuItem.Click += OnModifyAddressMenuItemSelected;
+
+            newCityToolStripMenuItem.Click += OnNewCityMenuItemSelected;
+            modifyCityToolStripMenuItem.Click += OnModifyCityMenuItemSelected;
+
+            newCountryToolStripMenuItem.Click += OnNewCountryMenuItemSelected;
+            modifyCountryToolStripMenuItem.Click += OnModifyCountryMenuItemsSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged += OnCustomerIdSelectionChanged;
@@ -278,18 +290,12 @@ namespace C969 {
         private void OnModifyUserMenuItemSelected(object sender, EventArgs e) {
 
         }
-        private void OnDeleteUserMenuItemSelected(object sender, EventArgs e) {
-
-        }
         private void OnNewAppointmentMenuItemSelected(object sender, EventArgs e) {
             NewAppointmentForm newApptForm = new NewAppointmentForm(activeUser);
             newApptForm.FormSaved += OnFormSaved;
             newApptForm.ShowDialog();
         }
         private void OnModifyAppointmentMenuItemSelected(object sender, EventArgs e) {
-
-        }
-        private void OnDeleteAppointmentMenuItemSelected(object sender, EventArgs e) {
 
         }
         private void OnNewCustomerMenuItemSelected(object sender, EventArgs e) {
@@ -300,18 +306,31 @@ namespace C969 {
         private void OnModifyCustomerMenuItemSelected(object sender, EventArgs e) {
 
         }
-        private void OnDeleteCustomerMenuItemSelected(object sender, EventArgs e) {
-
-        }
         private void OnNewAddressMenuItemSelected(object sender, EventArgs e) {
-
+            NewAddressForm newAddressForm = new NewAddressForm(activeUser);
+            newAddressForm.FormSaved += OnFormSaved;
+            newAddressForm.ShowDialog();
         }
         private void OnModifyAddressMenuItemSelected(object sender, EventArgs e) {
 
         }
-        private void OnDeleteAddressMenuItemSelected(object sender, EventArgs e) {
+        private void OnNewCityMenuItemSelected(object sender, EventArgs e) {
+            NewCityForm newCityForm = new NewCityForm(activeUser);
+            newCityForm.FormSaved += OnFormSaved;
+            newCityForm.ShowDialog();
+        }
+        private void OnModifyCityMenuItemSelected(object sender, EventArgs e) {
 
         }
+        private void OnNewCountryMenuItemSelected(object sender, EventArgs e) {
+            NewCountryForm newCountryForm = new NewCountryForm(activeUser);
+            newCountryForm.FormSaved += OnFormSaved;
+            newCountryForm.ShowDialog();
+        }
+        private void OnModifyCountryMenuItemsSelected(object sender, EventArgs e) {
+
+        }
+
         private void OnCustomerIdSelectionChanged(object sender, EventArgs e) {
             int id = int.Parse(cmbCustomerId.SelectedItem.ToString());
             Customer currentCustomer = null;

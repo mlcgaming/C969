@@ -12,7 +12,7 @@ using C969.Exceptions;
 
 namespace C969 {
     public partial class NewAppointmentForm : Form {
-        private UserAccount formOwner;
+        private readonly UserAccount formOwner;
 
         public event EventHandler FormSaved;
 
@@ -185,7 +185,7 @@ namespace C969 {
                 // Check Rows Affected to see if the record saved correctly
                 if(rowsAffected > 0) {
                     // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
-                    MessageBox.Show($"{rowsAffected} record(s) saved! Retuning to Home Form.");
+                    MessageBox.Show($"{rowsAffected} record(s) saved!");
                     OnFormSaved();
                 }
                 else {

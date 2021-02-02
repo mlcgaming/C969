@@ -11,7 +11,7 @@ using C969.DBItems;
 
 namespace C969 {
     public partial class NewAddressForm : Form {
-        private UserAccount formOwner;
+        private readonly UserAccount formOwner;
 
         public event EventHandler FormSaved;
 
@@ -58,6 +58,9 @@ namespace C969 {
             btnCancel.Click -= OnCancelButtonClicked;
             btnAddNewCity.Click -= OnNewCityButtonClicked;
 
+            // Clear Out Collections, as needed
+            cmbAddressCityId.Items.Clear();
+
             // Set Defaults for Form
             tboxAddressId.Text = DBManager.GetNewIdFromTable("address", "addressId").ToString();
             tboxAddressAddress1.Text = "";
@@ -103,8 +106,26 @@ namespace C969 {
         }
 
         private void OnSaveButtonClicked(object sender, EventArgs e) {
+            // Create a New Address and Parse it into an insertValues string to send to DBManager for INSERT INTO SQL statement
             int addressId = int.Parse(tboxAddressId.Text);
             int cityId = int.Parse(cmbAddressCityId.SelectedItem.ToString());
+
+            Address newAddress = new Address(addressId, tboxAddressAddress1.Text, tboxAddressAddress2.Text, cityId, tboxAddressPostalCode.Text, tboxAddressPhone.Text, DateTime.Now, formOwner.Username, DateTime.Now, formOwner.Username);
+            string insertValues = $"{newAddress.ID}, \"{newAddress.Address1}\", \"{newAddress.Address2}\", {newAddress.CityID}, \"{newAddress.PostalCode}\", \"{newAddress.Phone}\", \"{newAddress.DateCreated:yyyy-MM-dd HH:mm:ss}\", \"{newAddress.CreatedBy}\", " +
+                $"\"{newAddress.DateLastUpdated:yyyy-MM-dd HH:mm:ss}\", \"{newAddress.LastUpdatedBy}\"";
+
+            // Use DBManager to attempt to Insert new record
+            int rowsAdded = DBManager.InsertNewRecord("address", insertValues);
+
+            // Check if new rows were successfully added
+            if(rowsAdded > 0) {
+                // Success!
+                MessageBox.Show("New Address Successfully added to database!");
+                OnFormSaved();
+            }
+            else {
+                MessageBox.Show("Something went wrong.");
+            }
         }
         private void OnCancelButtonClicked(object sender, EventArgs e) {
             Close();

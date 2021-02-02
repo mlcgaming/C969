@@ -27,13 +27,13 @@ namespace C969 {
             this.lblCityId = new System.Windows.Forms.Label();
             this.tboxCityId = new System.Windows.Forms.TextBox();
             this.grpCityDetails = new System.Windows.Forms.GroupBox();
-            this.lblCityName = new System.Windows.Forms.Label();
-            this.tboxCityName = new System.Windows.Forms.TextBox();
-            this.lblCityCountryId = new System.Windows.Forms.Label();
-            this.cmbCityCountryId = new System.Windows.Forms.ComboBox();
-            this.btnAddNewCountry = new System.Windows.Forms.Button();
-            this.lblCityCountryName = new System.Windows.Forms.Label();
             this.lblCityCountryNameValue = new System.Windows.Forms.Label();
+            this.lblCityCountryName = new System.Windows.Forms.Label();
+            this.btnAddNewCountry = new System.Windows.Forms.Button();
+            this.cmbCityCountryId = new System.Windows.Forms.ComboBox();
+            this.lblCityCountryId = new System.Windows.Forms.Label();
+            this.tboxCityName = new System.Windows.Forms.TextBox();
+            this.lblCityName = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grpCityDetails.SuspendLayout();
@@ -72,47 +72,14 @@ namespace C969 {
             this.grpCityDetails.TabStop = false;
             this.grpCityDetails.Text = "Details";
             // 
-            // lblCityName
+            // lblCityCountryNameValue
             // 
-            this.lblCityName.AutoSize = true;
-            this.lblCityName.Location = new System.Drawing.Point(10, 32);
-            this.lblCityName.Name = "lblCityName";
-            this.lblCityName.Size = new System.Drawing.Size(38, 13);
-            this.lblCityName.TabIndex = 0;
-            this.lblCityName.Text = "Name:";
-            // 
-            // tboxCityName
-            // 
-            this.tboxCityName.Location = new System.Drawing.Point(54, 29);
-            this.tboxCityName.Name = "tboxCityName";
-            this.tboxCityName.Size = new System.Drawing.Size(187, 20);
-            this.tboxCityName.TabIndex = 1;
-            // 
-            // lblCityCountryId
-            // 
-            this.lblCityCountryId.AutoSize = true;
-            this.lblCityCountryId.Location = new System.Drawing.Point(10, 58);
-            this.lblCityCountryId.Name = "lblCityCountryId";
-            this.lblCityCountryId.Size = new System.Drawing.Size(46, 13);
-            this.lblCityCountryId.TabIndex = 2;
-            this.lblCityCountryId.Text = "Country:";
-            // 
-            // cmbCityCountryId
-            // 
-            this.cmbCityCountryId.FormattingEnabled = true;
-            this.cmbCityCountryId.Location = new System.Drawing.Point(62, 55);
-            this.cmbCityCountryId.Name = "cmbCityCountryId";
-            this.cmbCityCountryId.Size = new System.Drawing.Size(55, 21);
-            this.cmbCityCountryId.TabIndex = 3;
-            // 
-            // btnAddNewCountry
-            // 
-            this.btnAddNewCountry.Location = new System.Drawing.Point(160, 55);
-            this.btnAddNewCountry.Name = "btnAddNewCountry";
-            this.btnAddNewCountry.Size = new System.Drawing.Size(81, 23);
-            this.btnAddNewCountry.TabIndex = 4;
-            this.btnAddNewCountry.Text = "New Country";
-            this.btnAddNewCountry.UseVisualStyleBackColor = true;
+            this.lblCityCountryNameValue.AutoSize = true;
+            this.lblCityCountryNameValue.Location = new System.Drawing.Point(64, 107);
+            this.lblCityCountryNameValue.Name = "lblCityCountryNameValue";
+            this.lblCityCountryNameValue.Size = new System.Drawing.Size(71, 13);
+            this.lblCityCountryNameValue.TabIndex = 6;
+            this.lblCityCountryNameValue.Text = "CountryName";
             // 
             // lblCityCountryName
             // 
@@ -124,14 +91,48 @@ namespace C969 {
             this.lblCityCountryName.Text = "Country\r\nName:";
             this.lblCityCountryName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCityCountryNameValue
+            // btnAddNewCountry
             // 
-            this.lblCityCountryNameValue.AutoSize = true;
-            this.lblCityCountryNameValue.Location = new System.Drawing.Point(64, 107);
-            this.lblCityCountryNameValue.Name = "lblCityCountryNameValue";
-            this.lblCityCountryNameValue.Size = new System.Drawing.Size(71, 13);
-            this.lblCityCountryNameValue.TabIndex = 6;
-            this.lblCityCountryNameValue.Text = "CountryName";
+            this.btnAddNewCountry.Location = new System.Drawing.Point(160, 55);
+            this.btnAddNewCountry.Name = "btnAddNewCountry";
+            this.btnAddNewCountry.Size = new System.Drawing.Size(81, 23);
+            this.btnAddNewCountry.TabIndex = 4;
+            this.btnAddNewCountry.Text = "New Country";
+            this.btnAddNewCountry.UseVisualStyleBackColor = true;
+            // 
+            // cmbCityCountryId
+            // 
+            this.cmbCityCountryId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCityCountryId.FormattingEnabled = true;
+            this.cmbCityCountryId.Location = new System.Drawing.Point(62, 55);
+            this.cmbCityCountryId.Name = "cmbCityCountryId";
+            this.cmbCityCountryId.Size = new System.Drawing.Size(55, 21);
+            this.cmbCityCountryId.TabIndex = 3;
+            // 
+            // lblCityCountryId
+            // 
+            this.lblCityCountryId.AutoSize = true;
+            this.lblCityCountryId.Location = new System.Drawing.Point(10, 58);
+            this.lblCityCountryId.Name = "lblCityCountryId";
+            this.lblCityCountryId.Size = new System.Drawing.Size(46, 13);
+            this.lblCityCountryId.TabIndex = 2;
+            this.lblCityCountryId.Text = "Country:";
+            // 
+            // tboxCityName
+            // 
+            this.tboxCityName.Location = new System.Drawing.Point(54, 29);
+            this.tboxCityName.Name = "tboxCityName";
+            this.tboxCityName.Size = new System.Drawing.Size(187, 20);
+            this.tboxCityName.TabIndex = 1;
+            // 
+            // lblCityName
+            // 
+            this.lblCityName.AutoSize = true;
+            this.lblCityName.Location = new System.Drawing.Point(10, 32);
+            this.lblCityName.Name = "lblCityName";
+            this.lblCityName.Size = new System.Drawing.Size(38, 13);
+            this.lblCityName.TabIndex = 0;
+            this.lblCityName.Text = "Name:";
             // 
             // btnSave
             // 

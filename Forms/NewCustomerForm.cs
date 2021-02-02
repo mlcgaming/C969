@@ -11,7 +11,7 @@ using C969.DBItems;
 
 namespace C969 {
     public partial class NewCustomerForm : Form {
-        private UserAccount formOwner;
+        private readonly UserAccount formOwner;
 
         public event EventHandler FormSaving;
 
@@ -46,7 +46,7 @@ namespace C969 {
             cmbAddressId.SelectedIndex = 0;
         }
 
-        #region
+        #region Form Functions
         private void ValidateForm() {
             // Check Required Fields
             bool isFormValid = true;
@@ -74,11 +74,6 @@ namespace C969 {
                 btnSave.Enabled = false;
             }
         }
-        /// <summary>
-        /// Checks if specified control's TEXT field is empty or only whitespace.
-        /// </summary>
-        /// <param name="control">Control to Test</param>
-        /// <returns>TRUE if only spaces or empty. FALSE if text is present</returns>
         #endregion
 
         #region Event Functions

@@ -11,7 +11,7 @@ using C969.DBItems;
 
 namespace C969 {
     public partial class NewCountryForm : Form {
-        private UserAccount formOwner;
+        private readonly UserAccount formOwner;
 
         public event EventHandler FormSaved;
 
@@ -31,11 +31,26 @@ namespace C969 {
 
             // Subscribe to Control Events
             tboxCountryName.TextChanged += OnFormUpdated;
+            btnSave.Click += OnSaveButtonClicked;
+            btnCancel.Click += OnCancelButtonClicked;
         }
 
         #region Form Functions
         private void ValidateForm() {
-            
+            bool formIsValid = true;
+
+            // Check if Country Name field is empty or contains invalid characters
+            if(Validator.IsControlEmptyOrWhitespace(tboxCountryName) || Validator.IsTextFreeOfSpecialCharacters(tboxCountryName.Text) == false) {
+                formIsValid = false;
+            }
+
+            // Enable or Disable the Save Button, depending on if the form's fields are all valid
+            if(formIsValid) {
+                btnSave.Enabled = true;
+            }
+            else {
+                btnSave.Enabled = false;
+            }
         }
         #endregion
 
@@ -45,11 +60,27 @@ namespace C969 {
             Close();
         }
         private void OnFormUpdated(object sender, EventArgs e) {
-
+            ValidateForm();
         }
 
         private void OnSaveButtonClicked(object sender, EventArgs e) {
+            // Create New Country Object, then build an insertValues string to push to the Database
+            Country newCountry = new Country(int.Parse(tboxCountryId.Text), tboxCountryName.Text, DateTime.Now, formOwner.Username, DateTime.Now, formOwner.Username);
+            string insertValues = $"{newCountry.ID}, \"{newCountry.Name}\", \"{newCountry.DateCreated:yyyy-MM-dd HH:mm:ss}\", \"{newCountry.CreatedBy}\", \"{newCountry.DateLastUpdated:yyyy-MM-dd HH:mm:ss}\", \"{newCountry.LastUpdatedBy}\"";
 
+            // Attempt to Add new Record
+            int rowsAdded = DBManager.InsertNewRecord("country", insertValues);
+
+            // Check if Rows were added
+            if(rowsAdded > 0) {
+                // Success! Push the OnFormSaved event to close the form
+                MessageBox.Show("Success! New Country Added.");
+                OnFormSaved();
+            }
+            else {
+                // Something went wrong! Stop the insertion process and handle the error from the DBManager's Insert method
+                MessageBox.Show("Something went wrong! New Country was not added");
+            }
         }
         private void OnCancelButtonClicked(object sender, EventArgs e) {
             Close();
