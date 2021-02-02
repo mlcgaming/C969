@@ -67,8 +67,10 @@ namespace C969 {
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.Append($"Ordered Appointments for User {DBManager.GetUserById(int.Parse(cmbUserId.SelectedItem.ToString())).Username}\r\n\r\n");
             foreach(var appt in sortedAppointments) {
-                reportBuilder.Append($"[{appt.ID}] {appt.Title} Contact: {appt.Contact} Start: {appt.StartTime.ToString("MMM dd yyyy HH:mm tt")}");
+                reportBuilder.Append($"[{appt.ID}] {appt.Title} Contact: {appt.Contact} Start: {appt.StartTime.ToString("MMM dd yyyy HH:mm tt")}\r\n");
             }
+
+            MessageBox.Show(reportBuilder.ToString());
         }
         private void OnCancelButtonClicked(object sender, EventArgs e) {
             Close();
