@@ -40,6 +40,8 @@ namespace C969 {
 
             activeUser = null;
 
+            usersToolStripMenuItem.Enabled = false;
+
             LoginForm loginForm = new LoginForm();
             loginForm.UserLoggedIn += OnUserLoggedIn;
             loginForm.FormClosing += OnLoginFormClosed;
@@ -83,6 +85,10 @@ namespace C969 {
 
             newCountryToolStripMenuItem.Click -= OnNewCountryMenuItemSelected;
             modifyCountryToolStripMenuItem.Click -= OnModifyCountryMenuItemsSelected;
+
+            scheduleByUSERToolStripMenuItem.Click -= OnScheduleByUserReportMenuItemSelected;
+            appointmentsByTYPEByMONTHToolStripMenuItem.Click -= OnScheduleByTypeReportMenuItemSelected;
+            activeCustomersToolStripMenuItem.Click -= OnActiveCustomersReportMenuItemSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged -= OnCustomerIdSelectionChanged;
@@ -194,6 +200,10 @@ namespace C969 {
 
             newCountryToolStripMenuItem.Click += OnNewCountryMenuItemSelected;
             modifyCountryToolStripMenuItem.Click += OnModifyCountryMenuItemsSelected;
+
+            scheduleByUSERToolStripMenuItem.Click += OnScheduleByUserReportMenuItemSelected;
+            appointmentsByTYPEByMONTHToolStripMenuItem.Click += OnScheduleByTypeReportMenuItemSelected;
+            activeCustomersToolStripMenuItem.Click += OnActiveCustomersReportMenuItemSelected;
             #endregion
             #region ComboBox Selection Events
             cmbCustomerId.SelectedIndexChanged += OnCustomerIdSelectionChanged;
@@ -283,6 +293,17 @@ namespace C969 {
         private void OnFormSaved(object sender, EventArgs e) {
             ResetHomeForm();
         }
+        private void OnSelectFormClosing(object sender, SelectFormEventArgs e) {
+            // Check if the SelectForm has generated a Child Form
+            if(e.ChildForm != null) {
+                // Attach to the ChildForm's FormSaving event
+                e.ChildForm.FormSaved += OnFormSaved;
+                e.ChildForm.ShowDialog();
+            }
+
+            ResetHomeForm();
+            ReloadAppointmentCalendar();
+        }
 
         private void OnNewUserMenuItemSelected(object sender, EventArgs e) {
             
@@ -296,15 +317,19 @@ namespace C969 {
             newApptForm.ShowDialog();
         }
         private void OnModifyAppointmentMenuItemSelected(object sender, EventArgs e) {
-
+            SelectAppointmentForm selectAppointmentForm = new SelectAppointmentForm(activeUser);
+            selectAppointmentForm.FormClosing += OnSelectFormClosing;
+            selectAppointmentForm.ShowDialog();
         }
         private void OnNewCustomerMenuItemSelected(object sender, EventArgs e) {
             NewCustomerForm newCustomerForm = new NewCustomerForm(activeUser);
-            newCustomerForm.FormSaving += OnFormSaved;
+            newCustomerForm.FormSaved += OnFormSaved;
             newCustomerForm.ShowDialog();
         }
         private void OnModifyCustomerMenuItemSelected(object sender, EventArgs e) {
-
+            SelectCustomerForm selectCustomerForm = new SelectCustomerForm(activeUser);
+            selectCustomerForm.FormClosing += OnSelectFormClosing;
+            selectCustomerForm.ShowDialog();
         }
         private void OnNewAddressMenuItemSelected(object sender, EventArgs e) {
             NewAddressForm newAddressForm = new NewAddressForm(activeUser);
@@ -312,7 +337,9 @@ namespace C969 {
             newAddressForm.ShowDialog();
         }
         private void OnModifyAddressMenuItemSelected(object sender, EventArgs e) {
-
+            SelectAddressForm selectAddressForm = new SelectAddressForm(activeUser);
+            selectAddressForm.FormClosing += OnSelectFormClosing;
+            selectAddressForm.ShowDialog();
         }
         private void OnNewCityMenuItemSelected(object sender, EventArgs e) {
             NewCityForm newCityForm = new NewCityForm(activeUser);
@@ -320,7 +347,9 @@ namespace C969 {
             newCityForm.ShowDialog();
         }
         private void OnModifyCityMenuItemSelected(object sender, EventArgs e) {
-
+            SelectCityForm selectCityForm = new SelectCityForm(activeUser);
+            selectCityForm.FormClosing += OnSelectFormClosing;
+            selectCityForm.ShowDialog();
         }
         private void OnNewCountryMenuItemSelected(object sender, EventArgs e) {
             NewCountryForm newCountryForm = new NewCountryForm(activeUser);
@@ -328,6 +357,18 @@ namespace C969 {
             newCountryForm.ShowDialog();
         }
         private void OnModifyCountryMenuItemsSelected(object sender, EventArgs e) {
+            SelectCountryForm selectCountryForm = new SelectCountryForm(activeUser);
+            selectCountryForm.FormClosing += OnSelectFormClosing;
+            selectCountryForm.ShowDialog();
+        }
+
+        private void OnScheduleByTypeReportMenuItemSelected(object sender, EventArgs e) {
+
+        }
+        private void OnScheduleByUserReportMenuItemSelected(object sender, EventArgs e) {
+
+        }
+        private void OnActiveCustomersReportMenuItemSelected(object sender, EventArgs e) {
 
         }
 

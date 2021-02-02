@@ -10,11 +10,7 @@ using System.Windows.Forms;
 using C969.DBItems;
 
 namespace C969 {
-    public partial class NewAddressForm : Form {
-        private readonly UserAccount formOwner;
-
-        public event EventHandler FormSaved;
-
+    public partial class NewAddressForm : SaveableForm {
         public NewAddressForm(UserAccount user) {
             InitializeComponent();
 
@@ -89,8 +85,8 @@ namespace C969 {
         #endregion
 
         #region Event Functions
-        private void OnFormSaved() {
-            FormSaved?.Invoke(null, EventArgs.Empty);
+        protected override void OnFormSaved() {
+            base.OnFormSaved();
             Close();
         }
         private void OnFormUpdated(object sender, EventArgs e) {

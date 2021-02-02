@@ -37,6 +37,13 @@
             this.addressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.citiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.countriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
             this.grpCustomers = new System.Windows.Forms.GroupBox();
             this.grpCustomerDetails = new System.Windows.Forms.GroupBox();
@@ -82,13 +89,10 @@
             this.radioDateWeekly = new System.Windows.Forms.RadioButton();
             this.lblAppointmentDateRange = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.citiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.countriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appointmentsByTYPEByMONTHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleByUSERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activeCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.grpCustomers.SuspendLayout();
@@ -104,7 +108,8 @@
             // menuMain
             // 
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tasksToolStripMenuItem});
+            this.tasksToolStripMenuItem,
+            this.reportsToolStripMenuItem});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
             this.menuMain.Size = new System.Drawing.Size(800, 24);
@@ -128,7 +133,7 @@
             this.newUserToolStripMenuItem,
             this.modifyUserToolStripMenuItem});
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.usersToolStripMenuItem.Text = "Users";
             // 
             // newUserToolStripMenuItem
@@ -149,7 +154,7 @@
             this.newAppointmentToolStripMenuItem,
             this.modifyAppointmentToolStripMenuItem});
             this.appointmentsToolStripMenuItem.Name = "appointmentsToolStripMenuItem";
-            this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.appointmentsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.appointmentsToolStripMenuItem.Text = "Appointments";
             // 
             // newAppointmentToolStripMenuItem
@@ -170,7 +175,7 @@
             this.newCustomerToolStripMenuItem,
             this.modifyCustomerToolStripMenuItem});
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.customersToolStripMenuItem.Text = "Customers";
             // 
             // newCustomerToolStripMenuItem
@@ -194,20 +199,67 @@
             this.citiesToolStripMenuItem,
             this.countriesToolStripMenuItem});
             this.addressesToolStripMenuItem.Name = "addressesToolStripMenuItem";
-            this.addressesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addressesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.addressesToolStripMenuItem.Text = "Addresses";
             // 
             // newAddressToolStripMenuItem
             // 
             this.newAddressToolStripMenuItem.Name = "newAddressToolStripMenuItem";
-            this.newAddressToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newAddressToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.newAddressToolStripMenuItem.Text = "New";
             // 
             // modifyAddressToolStripMenuItem
             // 
             this.modifyAddressToolStripMenuItem.Name = "modifyAddressToolStripMenuItem";
-            this.modifyAddressToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyAddressToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.modifyAddressToolStripMenuItem.Text = "Modify / Delete";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            // 
+            // citiesToolStripMenuItem
+            // 
+            this.citiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newCityToolStripMenuItem,
+            this.modifyCityToolStripMenuItem});
+            this.citiesToolStripMenuItem.Name = "citiesToolStripMenuItem";
+            this.citiesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.citiesToolStripMenuItem.Text = "Cities";
+            // 
+            // newCityToolStripMenuItem
+            // 
+            this.newCityToolStripMenuItem.Name = "newCityToolStripMenuItem";
+            this.newCityToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.newCityToolStripMenuItem.Text = "New";
+            // 
+            // modifyCityToolStripMenuItem
+            // 
+            this.modifyCityToolStripMenuItem.Name = "modifyCityToolStripMenuItem";
+            this.modifyCityToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.modifyCityToolStripMenuItem.Text = "Modify / Delete";
+            // 
+            // countriesToolStripMenuItem
+            // 
+            this.countriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newCountryToolStripMenuItem,
+            this.modifyCountryToolStripMenuItem});
+            this.countriesToolStripMenuItem.Name = "countriesToolStripMenuItem";
+            this.countriesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.countriesToolStripMenuItem.Text = "Countries";
+            // 
+            // newCountryToolStripMenuItem
+            // 
+            this.newCountryToolStripMenuItem.Name = "newCountryToolStripMenuItem";
+            this.newCountryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.newCountryToolStripMenuItem.Text = "New";
+            // 
+            // modifyCountryToolStripMenuItem
+            // 
+            this.modifyCountryToolStripMenuItem.Name = "modifyCountryToolStripMenuItem";
+            this.modifyCountryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.modifyCountryToolStripMenuItem.Text = "Modify / Delete";
             // 
             // dgvAppointmentList
             // 
@@ -657,52 +709,33 @@
             this.panel1.Size = new System.Drawing.Size(264, 100);
             this.panel1.TabIndex = 6;
             // 
-            // toolStripSeparator1
+            // reportsToolStripMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.appointmentsByTYPEByMONTHToolStripMenuItem,
+            this.scheduleByUSERToolStripMenuItem,
+            this.activeCustomersToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Text = "Reports";
             // 
-            // citiesToolStripMenuItem
+            // appointmentsByTYPEByMONTHToolStripMenuItem
             // 
-            this.citiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newCityToolStripMenuItem,
-            this.modifyCityToolStripMenuItem});
-            this.citiesToolStripMenuItem.Name = "citiesToolStripMenuItem";
-            this.citiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.citiesToolStripMenuItem.Text = "Cities";
+            this.appointmentsByTYPEByMONTHToolStripMenuItem.Name = "appointmentsByTYPEByMONTHToolStripMenuItem";
+            this.appointmentsByTYPEByMONTHToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.appointmentsByTYPEByMONTHToolStripMenuItem.Text = "Appointments by TYPE by MONTH";
             // 
-            // countriesToolStripMenuItem
+            // scheduleByUSERToolStripMenuItem
             // 
-            this.countriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newCountryToolStripMenuItem,
-            this.modifyCountryToolStripMenuItem});
-            this.countriesToolStripMenuItem.Name = "countriesToolStripMenuItem";
-            this.countriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.countriesToolStripMenuItem.Text = "Countries";
+            this.scheduleByUSERToolStripMenuItem.Name = "scheduleByUSERToolStripMenuItem";
+            this.scheduleByUSERToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.scheduleByUSERToolStripMenuItem.Text = "Schedule by USER";
             // 
-            // newCityToolStripMenuItem
+            // activeCustomersToolStripMenuItem
             // 
-            this.newCityToolStripMenuItem.Name = "newCityToolStripMenuItem";
-            this.newCityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newCityToolStripMenuItem.Text = "New";
-            // 
-            // modifyCityToolStripMenuItem
-            // 
-            this.modifyCityToolStripMenuItem.Name = "modifyCityToolStripMenuItem";
-            this.modifyCityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modifyCityToolStripMenuItem.Text = "Modify / Delete";
-            // 
-            // newCountryToolStripMenuItem
-            // 
-            this.newCountryToolStripMenuItem.Name = "newCountryToolStripMenuItem";
-            this.newCountryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newCountryToolStripMenuItem.Text = "New";
-            // 
-            // modifyCountryToolStripMenuItem
-            // 
-            this.modifyCountryToolStripMenuItem.Name = "modifyCountryToolStripMenuItem";
-            this.modifyCountryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modifyCountryToolStripMenuItem.Text = "Modify / Delete";
+            this.activeCustomersToolStripMenuItem.Name = "activeCustomersToolStripMenuItem";
+            this.activeCustomersToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.activeCustomersToolStripMenuItem.Text = "Active Customers";
             // 
             // HomeForm
             // 
@@ -809,6 +842,10 @@
         private System.Windows.Forms.ToolStripMenuItem countriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newCountryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyCountryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem appointmentsByTYPEByMONTHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleByUSERToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activeCustomersToolStripMenuItem;
     }
 }
 

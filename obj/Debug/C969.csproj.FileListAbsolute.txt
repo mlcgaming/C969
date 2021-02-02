@@ -45,3 +45,13 @@ C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewCustomerForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewAddressForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewCityForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.NewCountryForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ModifyAddressForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ModifyAppointmentForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ModifyCityForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ModifyCountryForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ModifyCustomerForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectCustomerForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectAddressForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectAppointmentForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectCityForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectCountryForm.resources
