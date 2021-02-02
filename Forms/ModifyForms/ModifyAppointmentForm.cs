@@ -208,6 +208,7 @@ namespace C969 {
                 if(rowsAffected > 0) {
                     // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                     MessageBox.Show($"{rowsAffected} record(s) saved!");
+                    EventLogger.LogUnspecifiedEntry($"{formOwner} updated Appointment with ID {appointmentId}");
                     OnFormSaved();
                 }
                 else {

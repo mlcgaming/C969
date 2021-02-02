@@ -71,6 +71,7 @@ namespace C969 {
             if(rowsAdded > 0) {
                 // Success! Push the OnFormSaved event to close the form
                 MessageBox.Show("Success! New Country Added.");
+                EventLogger.LogUnspecifiedEntry($"{formOwner} created new Country with ID {newCountry.ID}");
                 OnFormSaved();
             }
             else {

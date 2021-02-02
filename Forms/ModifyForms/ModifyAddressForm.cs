@@ -116,6 +116,7 @@ namespace C969 {
             if(rowsAdded > 0) {
                 // Success!
                 MessageBox.Show("Address Successfully Updated!");
+                EventLogger.LogUnspecifiedEntry($"{formOwner} updated Address with ID {newAddress.ID}");
                 OnFormSaved();
             }
             else {

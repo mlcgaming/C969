@@ -106,6 +106,7 @@ namespace C969 {
 
                 if(rowsAffected > 0) {
                     MessageBox.Show("Record deleted successfully!");
+                    EventLogger.LogUnspecifiedEntry($"{formOwner} deleted City with ID {int.Parse(cmbCityId.SelectedItem.ToString())}");
                     ResetForm();
                 }
             }

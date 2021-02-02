@@ -117,6 +117,7 @@ namespace C969 {
 
                 if(rowsAffected > 0) {
                     MessageBox.Show("Record deleted successfully!");
+                    EventLogger.LogUnspecifiedEntry($"{formOwner} deleted Appointment with ID {int.Parse(cmbAppointmentId.SelectedItem.ToString())}");
                     ResetForm();
                 }
             }

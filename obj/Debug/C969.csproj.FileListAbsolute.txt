@@ -55,3 +55,5 @@ C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectAddressForm.resourc
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectAppointmentForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectCityForm.resources
 C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.SelectCountryForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ReportByTypeMonthForm.resources
+C:\Users\Max Courneya\source\repos\C969\obj\Debug\C969.ScheduleByUserForm.resources

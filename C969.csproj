@@ -166,8 +166,20 @@
     <Compile Include="Forms\SelectForms\SelectCustomerForm.Designer.cs">
       <DependentUpon>SelectCustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaveableForm.cs">
+    <Compile Include="Forms\ReportForms\ReportByTypeMonthForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportForms\ReportByTypeMonthForm.Designer.cs">
+      <DependentUpon>ReportByTypeMonthForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenericForms\SaveableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportForms\ScheduleByUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportForms\ScheduleByUserForm.Designer.cs">
+      <DependentUpon>ScheduleByUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Validator.cs" />
@@ -231,6 +243,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\ReportForms\ReportByTypeMonthForm.resx">
+      <DependentUpon>ReportByTypeMonthForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportForms\ScheduleByUserForm.resx">
+      <DependentUpon>ScheduleByUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

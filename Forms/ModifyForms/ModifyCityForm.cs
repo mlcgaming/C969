@@ -100,6 +100,7 @@ namespace C969 {
             if(rowsAdded > 0) {
                 // Success! Fire off the OnFormSaved event to close the form properly
                 MessageBox.Show("City Updated Successfully!");
+                EventLogger.LogUnspecifiedEntry($"{formOwner} updated City with ID {newCity.ID}");
                 OnFormSaved();
             }
             else {

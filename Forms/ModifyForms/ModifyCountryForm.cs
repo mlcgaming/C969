@@ -81,6 +81,7 @@ namespace C969 {
             if(rowsAffected > 0) {
                 // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                 MessageBox.Show($"{rowsAffected} record(s) saved! Retuning to Home Form.");
+                EventLogger.LogUnspecifiedEntry($"{formOwner} updated Country with ID {newCountry.ID}");
                 OnFormSaved();
             }
             else {

@@ -112,6 +112,7 @@ namespace C969 {
 
                 if(rowsAffected > 0) {
                     MessageBox.Show("Record deleted successfully!");
+                    EventLogger.LogUnspecifiedEntry($"{formOwner} deleted Address with ID {int.Parse(cmbAddressId.SelectedItem.ToString())}");
                     ResetForm();
                 }
             }

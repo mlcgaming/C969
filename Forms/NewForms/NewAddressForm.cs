@@ -117,6 +117,7 @@ namespace C969 {
             if(rowsAdded > 0) {
                 // Success!
                 MessageBox.Show("New Address Successfully added to database!");
+                EventLogger.LogUnspecifiedEntry($"{formOwner} created new Address with ID {newAddress.ID}");
                 OnFormSaved();
             }
             else {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using C969.DBItems;
 using C969.Events;
@@ -10,6 +11,7 @@ using C969.Events;
 namespace C969 {
     public partial class HomeForm : Form {
         private UserAccount activeUser;
+        private bool scheduleChecked;
 
         private List<UserAccount> allUsers;
         private List<Appointment> allAppointments;
@@ -39,6 +41,7 @@ namespace C969 {
             Settings.Initialize();
 
             activeUser = null;
+            scheduleChecked = false;
 
             usersToolStripMenuItem.Enabled = false;
 
@@ -181,6 +184,32 @@ namespace C969 {
             // Set Any Additional Labels, as necessary
             lblAppointmentDateRange.Text = $"Viewing User Appointments from\r\n{earliestAppointmentViewDate.ToString("dd MMM yyyy")} to {latestAppointmentViewDate.ToString("dd MMM yyyy")}";
 
+            // If HomeForm is Resetting for first time, check for immediate appointments
+            if(scheduleChecked == false) {
+                if(userAppointments.Count > 0) {
+                    AppointmentListing closestListing = userAppointments.ElementAt(0);
+
+                    foreach(var appt in userAppointments) {
+                        if(appt.StartDate.TimeOfDay < closestListing.StartDate.TimeOfDay) {
+                            closestListing = appt;
+                        }
+                    }
+
+                    // Once we have the closes appointment, check if its within 15 minutes of now
+                    if(closestListing.StartDate.Date == DateTime.Now.Date) {
+                        if(closestListing.StartDate.Hour - DateTime.Now.Hour == 0 &&
+                            closestListing.StartDate.Minute - DateTime.Now.Minute < 15 &&
+                            closestListing.StartDate.Minute - DateTime.Now.Minute >= 0) {
+                            // Date and Hour are the same, and time is less than 15 minutes, but more than 0.
+                            MessageBox.Show($"You have an appointment in {closestListing.StartDate.Minute - DateTime.Now.Minute} minutes with {closestListing.CustomerName}");
+                        }
+                    }
+                }
+
+                // Even if an appointment is not found at login, disable re-checking
+                scheduleChecked = true;
+            }
+
             // Subscribe to Controls
             #region MenuItem Selection Events
             newUserToolStripMenuItem.Click += OnNewUserMenuItemSelected;
@@ -268,6 +297,20 @@ namespace C969 {
             if(userAppointments.Count > 0) {
                 dgvAppointmentList.DataSource = userAppointments;
             }
+        }
+        private void GenerateCustomerReport() {
+            List<Customer> allCustomers = DBManager.GetAllCustomers();
+
+            IEnumerable<string> filteredCustomer = allCustomers.Where(cust => cust.IsActive == true).Select(cust => cust.Name);
+
+            StringBuilder reportBuilder = new StringBuilder();
+            reportBuilder.Append($"There are {filteredCustomer.Count()} active Customers.\r\n\r\n");
+            reportBuilder.Append("Active Customers:\r\n");
+            foreach(var name in filteredCustomer) {
+                reportBuilder.Append($"{name}\r\n");
+            }
+
+            MessageBox.Show(reportBuilder.ToString());
         }
         #endregion
 
@@ -363,13 +406,15 @@ namespace C969 {
         }
 
         private void OnScheduleByTypeReportMenuItemSelected(object sender, EventArgs e) {
-
+            ReportByTypeMonthForm reportByTypeMonthForm = new ReportByTypeMonthForm();
+            reportByTypeMonthForm.ShowDialog();
         }
         private void OnScheduleByUserReportMenuItemSelected(object sender, EventArgs e) {
-
+            ScheduleByUserForm scheduleByUserForm = new ScheduleByUserForm();
+            scheduleByUserForm.ShowDialog();
         }
         private void OnActiveCustomersReportMenuItemSelected(object sender, EventArgs e) {
-
+            GenerateCustomerReport();
         }
 
         private void OnCustomerIdSelectionChanged(object sender, EventArgs e) {
