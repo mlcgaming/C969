@@ -25,3 +25,8 @@
 2/4/2021 10:06:59 AM: User Successfully logged in with username "test".
 2/4/2021 10:07:32 AM: C969.DBItems.UserAccount created new Appointment with ID 11.
 2/4/2021 10:07:40 AM: User Successfully logged in with username "test".
+2/4/2021 10:11:50 AM: User Successfully logged in with username "test".
+2/4/2021 10:12:22 AM: C969.DBItems.UserAccount created new Appointment with ID 12.
+2/4/2021 10:13:56 AM: User Successfully logged in with username "test".
+2/4/2021 10:15:26 AM: C969.DBItems.UserAccount updated Appointment with ID 4.
+2/4/2021 10:19:39 AM: User Successfully logged in with username "test".

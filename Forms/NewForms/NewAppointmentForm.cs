@@ -139,8 +139,8 @@ namespace C969 {
                 int userId = int.Parse(cmbUserId.SelectedItem.ToString());
                 List<Appointment> allAppointments = DBManager.GetAllAppointments();
 
-                DateTime proposedStart = dtpAppointmentStart.Value.ToUniversalTime();
-                DateTime proposedEnd = dtpAppointmentEnd.Value.ToUniversalTime();
+                DateTime proposedStart = dtpAppointmentStart.Value;
+                DateTime proposedEnd = dtpAppointmentEnd.Value;
 
                 if(proposedStart > proposedEnd) {
                     throw new AppointmentTimesInvalidException("EndTime must come after StartTime");
@@ -156,12 +156,12 @@ namespace C969 {
 
                 IEnumerable<Appointment> userAppointments =
                     from appt in allAppointments
-                    where appt.StartTime.Date == proposedStart.Date || appt.EndTime.Date == proposedEnd.Date
+                    where appt.StartTime.ToLocalTime().Date == proposedStart.Date || appt.EndTime.ToLocalTime().Date == proposedEnd.Date
                     select appt;
 
                 foreach(var appt in userAppointments) {
-                    DateTime apptStart = appt.StartTime.ToUniversalTime();
-                    DateTime apptEnd = appt.EndTime.ToUniversalTime();
+                    DateTime apptStart = appt.StartTime.ToLocalTime();
+                    DateTime apptEnd = appt.EndTime.ToLocalTime();
 
                     if((apptStart >= proposedStart && apptStart <= proposedEnd)
                         || (apptEnd >= proposedStart && apptEnd <= proposedEnd)

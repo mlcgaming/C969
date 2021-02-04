@@ -167,18 +167,18 @@ namespace C969 {
 
                 IEnumerable<Appointment> userAppointments =
                     from appt in allAppointments
-                    where appt.StartTime.Date == proposedStart.Date || appt.EndTime.Date == proposedEnd.Date
+                    where appt.StartTime.ToLocalTime().Date == proposedStart.Date || appt.EndTime.ToLocalTime().Date == proposedEnd.Date
                     select appt;
 
                 foreach(var appt in userAppointments) {
-                    if((appt.StartTime >= proposedStart && appt.StartTime <= proposedEnd)
-                        || (appt.EndTime >= proposedStart && appt.EndTime <= proposedEnd)
-                        || (proposedStart >= appt.StartTime && proposedStart <= appt.EndTime)
-                        || (proposedEnd >= appt.StartTime && proposedEnd <= appt.EndTime)) {
+                    DateTime apptStart = appt.StartTime.ToLocalTime();
+                    DateTime apptEnd = appt.EndTime.ToLocalTime();
 
-                        if(appt.ID != int.Parse(tboxAppointmentId.Text)) {
-                            throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.ID}]");
-                        }
+                    if((apptStart >= proposedStart && apptStart <= proposedEnd)
+                        || (apptEnd >= proposedStart && apptEnd <= proposedEnd)
+                        || (proposedStart >= apptStart && proposedStart <= apptEnd)
+                        || (proposedEnd >= apptStart && proposedEnd <= apptEnd)) {
+                        throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.ID}]");
                     }
                 }
 
