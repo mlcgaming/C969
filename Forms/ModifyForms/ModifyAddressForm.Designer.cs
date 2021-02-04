@@ -116,6 +116,7 @@
             // tboxAddressPostalCode
             // 
             this.tboxAddressPostalCode.Location = new System.Drawing.Point(230, 112);
+            this.tboxAddressPostalCode.MaxLength = 5;
             this.tboxAddressPostalCode.Name = "tboxAddressPostalCode";
             this.tboxAddressPostalCode.Size = new System.Drawing.Size(69, 20);
             this.tboxAddressPostalCode.TabIndex = 7;
@@ -133,6 +134,7 @@
             // tboxAddressPhone
             // 
             this.tboxAddressPhone.Location = new System.Drawing.Point(73, 112);
+            this.tboxAddressPhone.MaxLength = 12;
             this.tboxAddressPhone.Name = "tboxAddressPhone";
             this.tboxAddressPhone.Size = new System.Drawing.Size(80, 20);
             this.tboxAddressPhone.TabIndex = 5;

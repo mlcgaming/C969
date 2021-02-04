@@ -32,11 +32,11 @@ namespace C969 {
                 isFormValid = false;
             }
 
-            if(Validator.IsControlEmptyOrWhitespace(tboxAddressPhone)) {
+            if(PhoneFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPhone)) {
                 isFormValid = false;
             }
 
-            if(Validator.IsControlEmptyOrWhitespace(tboxAddressPostalCode)) {
+            if(PostalCodeFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPostalCode)) {
                 isFormValid = false;
             }
 
@@ -46,6 +46,51 @@ namespace C969 {
             else {
                 btnSave.Enabled = false;
             }
+        }
+        private bool PhoneFieldValidation() {
+            char[] phoneChars = tboxAddressPhone.Text.ToCharArray();
+
+            // Check if field is too long (xxx-xxx-xxxx should be 12 chars)
+            if(phoneChars.Length != 12) {
+                return false;
+            }
+
+            // Check for dashes in correct places
+            if(phoneChars[3] != '-' || phoneChars[7] != '-') {
+                return false;
+            }
+
+            // Check that all other characters are only digits
+            IEnumerable<char> phoneNoDashes =
+                from c in phoneChars
+                where c != '-'
+                select c;
+
+            foreach(char c in phoneNoDashes) {
+                if(c < '0' || c > '9') {
+                    return false;
+                }
+            }
+
+            // Validation Passed!
+            return true;
+        }
+        private bool PostalCodeFieldValidation() {
+            char[] postalChars = tboxAddressPostalCode.Text.ToCharArray();
+
+            // Postal Code is too long
+            if(postalChars.Length != 5) {
+                return false;
+            }
+
+            // Check if PostalCode contains non-numbers
+            foreach(char c in postalChars) {
+                if(c < '0' || c > '9') {
+                    return false;
+                }
+            }
+
+            return true;
         }
         private void ResetForm() {
             // Temporarily Unsubscribe from Control Events
@@ -71,6 +116,9 @@ namespace C969 {
             foreach(City city in allCities) {
                 cmbAddressCityId.Items.Add(city.ID);
             }
+
+            // Disable Default Buttons
+            btnSave.Enabled = false;
 
             // Subscribe to Control Events
             tboxAddressAddress1.TextChanged += OnFormUpdated;

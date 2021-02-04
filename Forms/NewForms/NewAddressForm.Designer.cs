@@ -27,18 +27,20 @@ namespace C969 {
             this.lblAddressId = new System.Windows.Forms.Label();
             this.tboxAddressId = new System.Windows.Forms.TextBox();
             this.grpAddressDetails = new System.Windows.Forms.GroupBox();
-            this.lblAddressAddress1 = new System.Windows.Forms.Label();
-            this.tboxAddressAddress1 = new System.Windows.Forms.TextBox();
-            this.tboxAddressAddress2 = new System.Windows.Forms.TextBox();
-            this.lblAddressAddress2 = new System.Windows.Forms.Label();
-            this.tboxAddressPhone = new System.Windows.Forms.TextBox();
-            this.lblAddressPhone = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPhoneExample = new System.Windows.Forms.Label();
+            this.btnAddNewCity = new System.Windows.Forms.Button();
+            this.lblAddressCityName = new System.Windows.Forms.Label();
+            this.cmbAddressCityId = new System.Windows.Forms.ComboBox();
+            this.lblAddressCityId = new System.Windows.Forms.Label();
             this.tboxAddressPostalCode = new System.Windows.Forms.TextBox();
             this.lblAddressPostalCode = new System.Windows.Forms.Label();
-            this.lblAddressCityId = new System.Windows.Forms.Label();
-            this.cmbAddressCityId = new System.Windows.Forms.ComboBox();
-            this.lblAddressCityName = new System.Windows.Forms.Label();
-            this.btnAddNewCity = new System.Windows.Forms.Button();
+            this.tboxAddressPhone = new System.Windows.Forms.TextBox();
+            this.lblAddressPhone = new System.Windows.Forms.Label();
+            this.tboxAddressAddress2 = new System.Windows.Forms.TextBox();
+            this.lblAddressAddress2 = new System.Windows.Forms.Label();
+            this.tboxAddressAddress1 = new System.Windows.Forms.TextBox();
+            this.lblAddressAddress1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grpAddressDetails.SuspendLayout();
@@ -63,6 +65,8 @@ namespace C969 {
             // 
             // grpAddressDetails
             // 
+            this.grpAddressDetails.Controls.Add(this.label1);
+            this.grpAddressDetails.Controls.Add(this.lblPhoneExample);
             this.grpAddressDetails.Controls.Add(this.btnAddNewCity);
             this.grpAddressDetails.Controls.Add(this.lblAddressCityName);
             this.grpAddressDetails.Controls.Add(this.cmbAddressCityId);
@@ -82,22 +86,98 @@ namespace C969 {
             this.grpAddressDetails.TabStop = false;
             this.grpAddressDetails.Text = "Details (Bold are required)";
             // 
-            // lblAddressAddress1
+            // label1
             // 
-            this.lblAddressAddress1.AutoSize = true;
-            this.lblAddressAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressAddress1.Location = new System.Drawing.Point(21, 32);
-            this.lblAddressAddress1.Name = "lblAddressAddress1";
-            this.lblAddressAddress1.Size = new System.Drawing.Size(56, 13);
-            this.lblAddressAddress1.TabIndex = 0;
-            this.lblAddressAddress1.Text = "Address:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(246, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "ex. 12345";
             // 
-            // tboxAddressAddress1
+            // lblPhoneExample
             // 
-            this.tboxAddressAddress1.Location = new System.Drawing.Point(83, 29);
-            this.tboxAddressAddress1.Name = "tboxAddressAddress1";
-            this.tboxAddressAddress1.Size = new System.Drawing.Size(217, 20);
-            this.tboxAddressAddress1.TabIndex = 1;
+            this.lblPhoneExample.AutoSize = true;
+            this.lblPhoneExample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneExample.Location = new System.Drawing.Point(63, 135);
+            this.lblPhoneExample.Name = "lblPhoneExample";
+            this.lblPhoneExample.Size = new System.Drawing.Size(90, 13);
+            this.lblPhoneExample.TabIndex = 12;
+            this.lblPhoneExample.Text = "ex. 111-222-3333";
+            // 
+            // btnAddNewCity
+            // 
+            this.btnAddNewCity.Location = new System.Drawing.Point(225, 81);
+            this.btnAddNewCity.Name = "btnAddNewCity";
+            this.btnAddNewCity.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewCity.TabIndex = 11;
+            this.btnAddNewCity.Text = "New City";
+            this.btnAddNewCity.UseVisualStyleBackColor = true;
+            // 
+            // lblAddressCityName
+            // 
+            this.lblAddressCityName.AutoSize = true;
+            this.lblAddressCityName.Location = new System.Drawing.Point(126, 84);
+            this.lblAddressCityName.Name = "lblAddressCityName";
+            this.lblAddressCityName.Size = new System.Drawing.Size(52, 13);
+            this.lblAddressCityName.TabIndex = 10;
+            this.lblAddressCityName.Text = "CityName";
+            // 
+            // cmbAddressCityId
+            // 
+            this.cmbAddressCityId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAddressCityId.FormattingEnabled = true;
+            this.cmbAddressCityId.Location = new System.Drawing.Point(59, 81);
+            this.cmbAddressCityId.Name = "cmbAddressCityId";
+            this.cmbAddressCityId.Size = new System.Drawing.Size(61, 21);
+            this.cmbAddressCityId.TabIndex = 9;
+            // 
+            // lblAddressCityId
+            // 
+            this.lblAddressCityId.AutoSize = true;
+            this.lblAddressCityId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressCityId.Location = new System.Drawing.Point(21, 84);
+            this.lblAddressCityId.Name = "lblAddressCityId";
+            this.lblAddressCityId.Size = new System.Drawing.Size(32, 13);
+            this.lblAddressCityId.TabIndex = 8;
+            this.lblAddressCityId.Text = "City:";
+            // 
+            // tboxAddressPostalCode
+            // 
+            this.tboxAddressPostalCode.Location = new System.Drawing.Point(230, 112);
+            this.tboxAddressPostalCode.MaxLength = 5;
+            this.tboxAddressPostalCode.Name = "tboxAddressPostalCode";
+            this.tboxAddressPostalCode.Size = new System.Drawing.Size(69, 20);
+            this.tboxAddressPostalCode.TabIndex = 7;
+            // 
+            // lblAddressPostalCode
+            // 
+            this.lblAddressPostalCode.AutoSize = true;
+            this.lblAddressPostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressPostalCode.Location = new System.Drawing.Point(159, 115);
+            this.lblAddressPostalCode.Name = "lblAddressPostalCode";
+            this.lblAddressPostalCode.Size = new System.Drawing.Size(65, 13);
+            this.lblAddressPostalCode.TabIndex = 6;
+            this.lblAddressPostalCode.Text = "PostCode:";
+            // 
+            // tboxAddressPhone
+            // 
+            this.tboxAddressPhone.Location = new System.Drawing.Point(73, 112);
+            this.tboxAddressPhone.MaxLength = 12;
+            this.tboxAddressPhone.Name = "tboxAddressPhone";
+            this.tboxAddressPhone.Size = new System.Drawing.Size(80, 20);
+            this.tboxAddressPhone.TabIndex = 5;
+            // 
+            // lblAddressPhone
+            // 
+            this.lblAddressPhone.AutoSize = true;
+            this.lblAddressPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressPhone.Location = new System.Drawing.Point(20, 115);
+            this.lblAddressPhone.Name = "lblAddressPhone";
+            this.lblAddressPhone.Size = new System.Drawing.Size(47, 13);
+            this.lblAddressPhone.TabIndex = 4;
+            this.lblAddressPhone.Text = "Phone:";
             // 
             // tboxAddressAddress2
             // 
@@ -115,76 +195,22 @@ namespace C969 {
             this.lblAddressAddress2.TabIndex = 2;
             this.lblAddressAddress2.Text = "Apt / Suite / Unit:";
             // 
-            // tboxAddressPhone
+            // tboxAddressAddress1
             // 
-            this.tboxAddressPhone.Location = new System.Drawing.Point(73, 112);
-            this.tboxAddressPhone.Name = "tboxAddressPhone";
-            this.tboxAddressPhone.Size = new System.Drawing.Size(80, 20);
-            this.tboxAddressPhone.TabIndex = 5;
+            this.tboxAddressAddress1.Location = new System.Drawing.Point(83, 29);
+            this.tboxAddressAddress1.Name = "tboxAddressAddress1";
+            this.tboxAddressAddress1.Size = new System.Drawing.Size(217, 20);
+            this.tboxAddressAddress1.TabIndex = 1;
             // 
-            // lblAddressPhone
+            // lblAddressAddress1
             // 
-            this.lblAddressPhone.AutoSize = true;
-            this.lblAddressPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressPhone.Location = new System.Drawing.Point(20, 115);
-            this.lblAddressPhone.Name = "lblAddressPhone";
-            this.lblAddressPhone.Size = new System.Drawing.Size(47, 13);
-            this.lblAddressPhone.TabIndex = 4;
-            this.lblAddressPhone.Text = "Phone:";
-            // 
-            // tboxAddressPostalCode
-            // 
-            this.tboxAddressPostalCode.Location = new System.Drawing.Point(230, 112);
-            this.tboxAddressPostalCode.Name = "tboxAddressPostalCode";
-            this.tboxAddressPostalCode.Size = new System.Drawing.Size(69, 20);
-            this.tboxAddressPostalCode.TabIndex = 7;
-            // 
-            // lblAddressPostalCode
-            // 
-            this.lblAddressPostalCode.AutoSize = true;
-            this.lblAddressPostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressPostalCode.Location = new System.Drawing.Point(159, 115);
-            this.lblAddressPostalCode.Name = "lblAddressPostalCode";
-            this.lblAddressPostalCode.Size = new System.Drawing.Size(65, 13);
-            this.lblAddressPostalCode.TabIndex = 6;
-            this.lblAddressPostalCode.Text = "PostCode:";
-            // 
-            // lblAddressCityId
-            // 
-            this.lblAddressCityId.AutoSize = true;
-            this.lblAddressCityId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressCityId.Location = new System.Drawing.Point(21, 84);
-            this.lblAddressCityId.Name = "lblAddressCityId";
-            this.lblAddressCityId.Size = new System.Drawing.Size(32, 13);
-            this.lblAddressCityId.TabIndex = 8;
-            this.lblAddressCityId.Text = "City:";
-            // 
-            // cmbAddressCityId
-            // 
-            this.cmbAddressCityId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAddressCityId.FormattingEnabled = true;
-            this.cmbAddressCityId.Location = new System.Drawing.Point(59, 81);
-            this.cmbAddressCityId.Name = "cmbAddressCityId";
-            this.cmbAddressCityId.Size = new System.Drawing.Size(61, 21);
-            this.cmbAddressCityId.TabIndex = 9;
-            // 
-            // lblAddressCityName
-            // 
-            this.lblAddressCityName.AutoSize = true;
-            this.lblAddressCityName.Location = new System.Drawing.Point(126, 84);
-            this.lblAddressCityName.Name = "lblAddressCityName";
-            this.lblAddressCityName.Size = new System.Drawing.Size(52, 13);
-            this.lblAddressCityName.TabIndex = 10;
-            this.lblAddressCityName.Text = "CityName";
-            // 
-            // btnAddNewCity
-            // 
-            this.btnAddNewCity.Location = new System.Drawing.Point(225, 81);
-            this.btnAddNewCity.Name = "btnAddNewCity";
-            this.btnAddNewCity.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNewCity.TabIndex = 11;
-            this.btnAddNewCity.Text = "New City";
-            this.btnAddNewCity.UseVisualStyleBackColor = true;
+            this.lblAddressAddress1.AutoSize = true;
+            this.lblAddressAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddressAddress1.Location = new System.Drawing.Point(21, 32);
+            this.lblAddressAddress1.Name = "lblAddressAddress1";
+            this.lblAddressAddress1.Size = new System.Drawing.Size(56, 13);
+            this.lblAddressAddress1.TabIndex = 0;
+            this.lblAddressAddress1.Text = "Address:";
             // 
             // btnSave
             // 
@@ -243,5 +269,7 @@ namespace C969 {
         private System.Windows.Forms.Label lblAddressAddress1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPhoneExample;
     }
 }
