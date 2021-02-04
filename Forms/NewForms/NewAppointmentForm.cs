@@ -139,8 +139,8 @@ namespace C969 {
                 int userId = int.Parse(cmbUserId.SelectedItem.ToString());
                 List<Appointment> allAppointments = DBManager.GetAllAppointments();
 
-                DateTime proposedStart = dtpAppointmentStart.Value;
-                DateTime proposedEnd = dtpAppointmentEnd.Value;
+                DateTime proposedStart = dtpAppointmentStart.Value.ToUniversalTime();
+                DateTime proposedEnd = dtpAppointmentEnd.Value.ToUniversalTime();
 
                 if(proposedStart > proposedEnd) {
                     throw new AppointmentTimesInvalidException("EndTime must come after StartTime");
@@ -160,10 +160,13 @@ namespace C969 {
                     select appt;
 
                 foreach(var appt in userAppointments) {
-                    if((appt.StartTime >= proposedStart && appt.StartTime <= proposedEnd)
-                        || (appt.EndTime >= proposedStart && appt.EndTime <= proposedEnd)
-                        || (proposedStart >= appt.StartTime && proposedStart <= appt.EndTime)
-                        || (proposedEnd >= appt.StartTime && proposedEnd <= appt.EndTime)) {
+                    DateTime apptStart = appt.StartTime.ToUniversalTime();
+                    DateTime apptEnd = appt.EndTime.ToUniversalTime();
+
+                    if((apptStart >= proposedStart && apptStart <= proposedEnd)
+                        || (apptEnd >= proposedStart && apptEnd <= proposedEnd)
+                        || (proposedStart >= apptStart && proposedStart <= apptEnd)
+                        || (proposedEnd >= apptStart && proposedEnd <= apptEnd)) {
                         throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.ID}]");
                     }
                 }

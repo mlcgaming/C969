@@ -187,19 +187,32 @@ namespace C969 {
             // If HomeForm is Resetting for first time, check for immediate appointments
             if(scheduleChecked == false) {
                 if(userAppointments.Count > 0) {
-                    AppointmentListing closestListing = userAppointments.ElementAt(0);
+                    IEnumerable<AppointmentListing> todayAppointments =
+                        from appt in userAppointments
+                        orderby appt.StartDate.ToLocalTime().TimeOfDay ascending
+                        where appt.StartDate.ToLocalTime().Date == DateTime.Now.ToLocalTime().Date
+                        select appt;
 
-                    foreach(var appt in userAppointments) {
-                        if(appt.StartDate.TimeOfDay < closestListing.StartDate.TimeOfDay) {
+                    AppointmentListing closestListing = todayAppointments.Last();
+
+                    foreach(var appt in todayAppointments) {
+                        DateTime apptStart = appt.StartDate.ToLocalTime();
+                        DateTime closestStart = closestListing.StartDate.ToLocalTime();
+                        DateTime timeNow = DateTime.Now.ToLocalTime();
+
+                        if(apptStart.TimeOfDay < closestStart.TimeOfDay && apptStart.TimeOfDay > timeNow.TimeOfDay){
                             closestListing = appt;
                         }
                     }
 
+                    DateTime closestApptStart = closestListing.StartDate.ToLocalTime();
+                    DateTime currentTimeLocal = DateTime.Now.ToLocalTime();
+
                     // Once we have the closes appointment, check if its within 15 minutes of now
-                    if(closestListing.StartDate.Date == DateTime.Now.Date) {
-                        if(closestListing.StartDate.Hour - DateTime.Now.Hour == 0 &&
-                            closestListing.StartDate.Minute - DateTime.Now.Minute < 15 &&
-                            closestListing.StartDate.Minute - DateTime.Now.Minute >= 0) {
+                    if(closestApptStart.Date == currentTimeLocal.Date) {
+                        if(closestApptStart.Hour - currentTimeLocal.Hour == 0 &&
+                            closestApptStart.Minute - currentTimeLocal.Minute <= 15 &&
+                            closestApptStart.Minute - currentTimeLocal.Minute >= 0) {
                             // Date and Hour are the same, and time is less than 15 minutes, but more than 0.
                             MessageBox.Show($"You have an appointment in {closestListing.StartDate.Minute - DateTime.Now.Minute} minutes with {closestListing.CustomerName}");
                         }

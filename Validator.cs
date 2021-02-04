@@ -16,11 +16,11 @@ namespace C969 {
         public static bool IsControlEmptyOrWhitespace(Control control) {
             string entry = control.Text;
 
-            if(entry.Replace(" ", "").Length > 0) {
-                return false;
+            if(string.IsNullOrWhiteSpace(entry)) {
+                return true;
             }
             else {
-                return true;
+                return false;
             }
         }
         /// <summary>

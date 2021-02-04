@@ -7,3 +7,21 @@
 2/2/2021 6:22:48 PM: User Successfully logged in with username "test".
 2/2/2021 6:24:42 PM: User Successfully logged in with username "test".
 2/2/2021 6:24:53 PM: C969.DBItems.UserAccount updated Appointment with ID 5.
+2/4/2021 9:39:39 AM: User Successfully logged in with username "test".
+2/4/2021 9:40:15 AM: C969.DBItems.UserAccount created new Appointment with ID 9.
+2/4/2021 9:40:25 AM: User Successfully logged in with username "test".
+2/4/2021 9:43:41 AM: User Successfully logged in with username "test".
+2/4/2021 9:44:15 AM: User Successfully logged in with username "test".
+2/4/2021 9:44:32 AM: User Successfully logged in with username "test".
+2/4/2021 9:47:24 AM: User Successfully logged in with username "test".
+2/4/2021 9:51:16 AM: User Successfully logged in with username "test".
+2/4/2021 9:52:14 AM: C969.DBItems.UserAccount created new Appointment with ID 10.
+2/4/2021 9:55:39 AM: User Successfully logged in with username "test".
+2/4/2021 9:57:11 AM: User Successfully logged in with username "test".
+2/4/2021 10:02:37 AM: User Successfully logged in with username "test".
+2/4/2021 10:06:06 AM: ERROR: User could not log in with username "test".
+2/4/2021 10:06:11 AM: User Successfully logged in with username "test".
+2/4/2021 10:06:29 AM: User Successfully logged in with username "test".
+2/4/2021 10:06:59 AM: User Successfully logged in with username "test".
+2/4/2021 10:07:32 AM: C969.DBItems.UserAccount created new Appointment with ID 11.
+2/4/2021 10:07:40 AM: User Successfully logged in with username "test".
