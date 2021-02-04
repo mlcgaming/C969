@@ -64,6 +64,7 @@ namespace C969 {
         #region Event Functions
         private void OnUserLoggedIn(UserAccount user) {
             MessageBox.Show("Login Successful");
+            EventLogger.LogSuccessfulLogin(user);
             UserLoggedIn?.Invoke(null, new UserLoggedInEventArgs(user));
             Close();
         }
@@ -80,12 +81,14 @@ namespace C969 {
                         }
                         else {
                             // Username Matches, but Password Doesn't. Throw Exception
+                            EventLogger.LogUnsuccessfulLogin(tboxUsername.Text);
                             throw new LoginInvalidException("Password does not match.");
                         }
                     }
                 }
 
                 // No matching Username was found. Throw Exception
+                EventLogger.LogUnsuccessfulLogin(tboxUsername.Text);
                 throw new LoginInvalidException("User account does not exist");
             }
             catch(LoginInvalidException ex) {

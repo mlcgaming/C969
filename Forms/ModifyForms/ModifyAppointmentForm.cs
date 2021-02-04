@@ -201,8 +201,8 @@ namespace C969 {
                 Appointment newAppointment = new Appointment(appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
                 string insertValues = $"appointmentId = {appointmentId}, customerId = {customerId}, userId = {userId}, title = \"{title}\", description = \"{description}\", location = \"{location}\", contact = \"{contact}\", " +
                     $"type = \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm:ss}\", end = \"{end:yyyy-MM-dd HH:mm:ss}\", createDate = \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy = \"{createdBy}\", " +
-                    $"lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy\"{lastUpdatedBy}\"";
-                int rowsAffected = DBManager.UpdateRecord("appointment", insertValues, $"appointmentId = {int.Parse(tboxAppointmentId.Text)}");
+                    $"lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
+                int rowsAffected = DBManager.UpdateRecord("appointment", insertValues, $"appointmentId = {appointmentId}");
 
                 // Check Rows Affected to see if the record saved correctly
                 if(rowsAffected > 0) {

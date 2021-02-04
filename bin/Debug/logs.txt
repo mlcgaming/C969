@@ -1,0 +1,9 @@
+2/2/2021 2:02:37 AM: ERROR: User could not log in with username "test".
+2/2/2021 2:03:16 AM: User Successfully logged in with username "test".
+2/2/2021 6:13:57 PM: User Successfully logged in with username "test".
+2/2/2021 6:14:42 PM: C969.DBItems.UserAccount created new Appointment with ID 5.
+2/2/2021 6:17:42 PM: C969.DBItems.UserAccount updated customer with ID 5.
+2/2/2021 6:20:30 PM: User Successfully logged in with username "test".
+2/2/2021 6:22:48 PM: User Successfully logged in with username "test".
+2/2/2021 6:24:42 PM: User Successfully logged in with username "test".
+2/2/2021 6:24:53 PM: C969.DBItems.UserAccount updated Appointment with ID 5.

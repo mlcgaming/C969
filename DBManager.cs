@@ -544,6 +544,7 @@ namespace C969 {
                 return maxID + 1;
             }
             catch (MySqlException ex) {
+                EventLogger.LogConnectionIssue();
                 MessageBox.Show(ex.Message);
                 return 0;
             }
@@ -572,6 +573,7 @@ namespace C969 {
                 }
             }
             catch(MySqlException ex) {
+                EventLogger.LogConnectionIssue();
                 MessageBox.Show(ex.Message);
             }
             finally {
@@ -595,6 +597,7 @@ namespace C969 {
                 MessageBox.Show("Address not found. Unable to load city data.");
             }
             catch(MySqlException ex) {
+                EventLogger.LogConnectionIssue();
                 MessageBox.Show(ex.Message);
             }
             finally {
@@ -618,6 +621,7 @@ namespace C969 {
                 MessageBox.Show("Address not found. Unable to load country data.");
             }
             catch(MySqlException ex) {
+                EventLogger.LogConnectionIssue();
                 MessageBox.Show(ex.Message);
             }
             finally {
